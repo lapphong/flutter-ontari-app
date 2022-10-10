@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../config/themes/text_style.dart';
+import '../../themes/text_style.dart';
 
 class FilterButton extends StatefulWidget {
   final double? height;

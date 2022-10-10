@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../config/themes/app_color.dart';
-import '../../../config/themes/text_style.dart';
-import '../../../constants/assets_path.dart';
+import '../../../assets/assets_path.dart';
+import '../../../themes/app_color.dart';
+import '../../../themes/text_style.dart';
 import '../../../widgets/stateless/common_bodyitem.dart';
 
 class SettingAccount extends StatelessWidget {
@@ -14,12 +14,13 @@ class SettingAccount extends StatelessWidget {
     required this.onTap,
   }) : super(key: key);
 
-  final String? fullName, userName, assetName;
+  final String? fullName, userName;
+  final String assetName;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return BodyItem(
+    return BodyItemNetwork(
       onTap: onTap,
       height: 64,
       widthImg: 64,

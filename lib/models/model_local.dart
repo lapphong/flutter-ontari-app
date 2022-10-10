@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
-import '../constants/assets_path.dart';
+import '../assets/assets_path.dart';
 
 class ModelGeneral {
   String title;

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ontari_app/config/themes/app_color.dart';
+import 'package:ontari_app/themes/app_color.dart';
 
-import '../../../config/themes/text_style.dart';
-import '../../../constants/assets_path.dart';
+import '../../../assets/assets_path.dart';
+import '../../../themes/text_style.dart';
 import '../../../widgets/stateless/common_bodyitem.dart';
 
 class CategoryOffice extends StatelessWidget {
-  CategoryOffice({
+  const CategoryOffice({
     Key? key,
     this.assetIcon,
     this.title,
@@ -15,13 +15,13 @@ class CategoryOffice extends StatelessWidget {
   }) : super(key: key);
 
   final String? assetIcon, title, countMentor;
-  VoidCallback? onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BodyItem(
+        BodyItemAsset(
           onTap: onTap,
           assetName: AssetPath.imgBackgroundItems,
           widthImg: 48,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ontari_app/widgets/stateless/common_bodyitem.dart';
 
-import '../../../config/themes/app_color.dart';
-import '../../../config/themes/text_style.dart';
-import '../../../constants/assets_path.dart';
+import '../../../assets/assets_path.dart';
+import '../../../themes/app_color.dart';
+import '../../../themes/text_style.dart';
 import '../../../models/model_local.dart';
-import '../../../widgets/stateless/common_bodyitem.dart';
 
 class ItemsDownloadVideo extends StatelessWidget {
   const ItemsDownloadVideo({
@@ -21,10 +21,10 @@ class ItemsDownloadVideo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BodyItem(
+        BodyItemAsset(
           height: 88,
           widthImg: 112,
-          assetName: assetName,
+          assetName: assetName!,
           mid: Padding(
             padding: const EdgeInsets.only(left: 12.0),
             child: Column(
@@ -92,10 +92,10 @@ class ItemsDownloadVideo extends StatelessWidget {
   onSelected(BuildContext context, ModelSetting item) {
     switch (item) {
       case itemPlayVideo:
-        print('play');
+        //print('play');
         break;
       case itemRemove:
-        print('remove');
+        //print('remove');
         break;
     }
   }

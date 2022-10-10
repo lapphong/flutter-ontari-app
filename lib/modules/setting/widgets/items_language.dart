@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../config/themes/app_color.dart';
-import '../../../config/themes/text_style.dart';
-import '../../../constants/assets_path.dart';
+import '../../../assets/assets_path.dart';
+import '../../../themes/app_color.dart';
+import '../../../themes/text_style.dart';
 import '../../../widgets/stateless/common_bodyitem.dart';
 
 class ItemLanguage extends StatefulWidget {
@@ -25,13 +25,13 @@ class _ItemLanguageState extends State<ItemLanguage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BodyItem(
+        BodyItemAsset(
           onTap: () {
             setState(() {
               _isSelected = !_isSelected!;
             });
           },
-          assetName: widget.assetName,
+          assetName: widget.assetName!,
           mid: Padding(
             padding: const EdgeInsets.only(left: 14.0),
             child: SizedBox(

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../config/themes/app_color.dart';
-import '../../../config/themes/text_style.dart';
-import '../../../constants/assets_path.dart';
+import '../../../assets/assets_path.dart';
+import '../../../themes/app_color.dart';
+import '../../../themes/text_style.dart';
 import '../../../widgets/stateless/common_bodyitem.dart';
 
 class ItemsCourse extends StatelessWidget {
-  ItemsCourse({
+  const ItemsCourse({
     Key? key,
     this.assetName,
     this.title,
@@ -16,17 +16,17 @@ class ItemsCourse extends StatelessWidget {
   }) : super(key: key);
 
   final String? assetName, title, part, time;
-  VoidCallback? onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BodyItem(
+        BodyItemAsset(
           onTap: onTap,
           height: 80,
           widthImg: 112,
-          assetName: assetName,
+          assetName: assetName!,
           mid: Padding(
             padding: const EdgeInsets.only(left: 12.0),
             child: Column(

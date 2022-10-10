@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ontari_app/config/themes/app_color.dart';
+import 'package:ontari_app/themes/app_color.dart';
 
-import '../../config/routes/routes.dart';
+import '../../routes/route_name.dart';
 import '../stateless/common_button.dart';
 
 class ListPage extends StatelessWidget {
@@ -11,23 +11,24 @@ class ListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     List<String> pages = [
-      Routes.commonWidgetPage,
-      Routes.fullScreenPage,
-      Routes.splash,
-      Routes.signInPage,
-      Routes.signUpPage,
-      Routes.verifyYourPage,
-      Routes.selectPlanPage,
-      Routes.homePage,
-      Routes.activityPage,
-      Routes.categoryPage,
-      Routes.detailMentorPage,
-      Routes.playingCoursePage,
-      Routes.settingPage,
-      Routes.languagePage,
-      Routes.downloadVideoPage,
-      Routes.editProfilePage,
-      Routes.favoritePage,
+      RouteName.commonWidgetPage,
+      RouteName.fullScreenPage,
+      RouteName.fullPageBloc,
+      RouteName.splash,
+      RouteName.signInPage,
+      RouteName.signUpPage,
+      RouteName.verifyYourPage,
+      RouteName.selectPlanPage,
+      RouteName.homePage,
+      RouteName.activityPage,
+      RouteName.categoryPage,
+      RouteName.detailMentorPage,
+      RouteName.playingCoursePage,
+      RouteName.settingPage,
+      RouteName.languagePage,
+      RouteName.downloadVideoPage,
+      RouteName.editProfilePage,
+      RouteName.favoritePage,
     ];
     return Scaffold(
       body: SafeArea(
@@ -45,11 +46,11 @@ class ListPage extends StatelessWidget {
                               widthRadius: 0,
                               colorRadius: DarkTheme.white,
                               color: DarkTheme.greyScale800,
-                              child: Center(child: Text(e)),
                               radius: 20,
                               onTap: () {
                                 Navigator.pushNamed(context, e);
                               },
+                              child: Center(child: Text(e)),
                             ),
                           )))
                   .toList()),

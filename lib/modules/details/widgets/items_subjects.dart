@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../../config/themes/text_style.dart';
+import '../../../themes/text_style.dart';
 
 class ItemsSubjects extends StatelessWidget {
   const ItemsSubjects({

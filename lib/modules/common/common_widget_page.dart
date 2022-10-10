@@ -1,9 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:ontari_app/config/themes/app_color.dart';
-import 'package:ontari_app/config/themes/text_style.dart';
-import 'package:ontari_app/constants/assets_path.dart';
+import 'package:ontari_app/themes/app_color.dart';
+import 'package:ontari_app/themes/text_style.dart';
 import 'package:ontari_app/models/model_local.dart';
 import 'package:ontari_app/modules/activity/widgets/completed_progress.dart';
 import 'package:ontari_app/modules/activity/widgets/items_activity.dart';
@@ -19,13 +16,12 @@ import 'package:ontari_app/modules/setting/widgets/items_language.dart';
 import 'package:ontari_app/modules/setting/widgets/items_my_favorite.dart';
 import 'package:ontari_app/modules/setting/widgets/items_toggle_setting.dart';
 import 'package:ontari_app/widgets/stateless/common_button.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
+import '../../assets/assets_path.dart';
 import '../../widgets/stateful/indicator_slider.dart';
 import '../../widgets/stateful/toggle_switch_button.dart';
 import '../../widgets/stateless/class_preview.dart';
 import '../../widgets/stateless/common_avatar.dart';
-import '../../widgets/stateless/common_bodyitem.dart';
 import '../../widgets/stateful/common_textfield.dart';
 import '../../widgets/stateless/discount.dart';
 import '../../widgets/stateless/indicator_home.dart';
@@ -42,7 +38,6 @@ class CommonWidgetPage extends StatefulWidget {
 
 class _CommonWidgetPageState extends State<CommonWidgetPage> {
   bool check = false;
-  int _currentIndex = 0;
   late PageController _pageController;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -55,7 +50,6 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final TextEditingController text = TextEditingController();
 
     return Scaffold(
       //backgroundColor: DarkTheme.greyScale900,
@@ -79,7 +73,7 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
 
             const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
             ClassicButton(
-              onTap: () => print('Size: ${size}'),
+              //onTap: () => print('Size: ${size}'),
               width: size.width / 1.3,
               widthRadius: 0,
               radius: 12,
@@ -171,7 +165,7 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
                   ),
                 ),
                 const Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-                const ToggleSwitchButton(),
+                ToggleSwitchButton(),
                 const Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
                 const IndicatorSlider(edge: 10, count: 3),
               ],
@@ -189,21 +183,14 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
             //     assetName: AssetPath.iconEmail,
             //   ),
             // ),
-            TextFieldEmail(
-              //emailController: _emailController,
-              //emailFocusNode: _emailFocusNode,
-              //onChanged: ,
-              //onEditingComplete: ,
-              childPrefixIcon: const CustomAvatar(
-                width: 15,
-                height: 12,
-                assetName: AssetPath.iconEmail,
-              ),
-            ),
+            const TextFieldEmail(
+                //emailController: _emailController,
+                //emailFocusNode: _emailFocusNode,
+                //onChanged: ,
+                //onEditingComplete: ,
+                ),
             const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-            TextFieldPassword(
-              assetPrefixIcon: AssetPath.iconLock,
-            ),
+            const TextFieldPassword(),
             const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
             TextFieldSearchBar(
               textController: TextEditingController(),
@@ -302,8 +289,8 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
               ),
             ),
             const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
               child: CategoryOffice(
                 assetIcon: AssetPath.iconBell,
                 title: 'Business',
@@ -406,10 +393,10 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
             ),
             const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: SettingAccount(
                 onTap: () {
-                  print('aaa');
+                  //print('aaa');
                 },
                 fullName: 'Barly Vallendito',
                 userName: 'barlyvallendito',

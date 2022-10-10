@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../config/themes/app_color.dart';
+import '../../themes/app_color.dart';
 
 class IndicatorSlider extends StatefulWidget {
   const IndicatorSlider({Key? key, this.edge, this.count}) : super(key: key);

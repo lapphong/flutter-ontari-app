@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/rendering/sliver_persistent_header.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:ontari_app/config/themes/app_color.dart';
-import 'package:ontari_app/config/themes/text_style.dart';
-import 'package:ontari_app/constants/assets_path.dart';
+import 'package:ontari_app/themes/app_color.dart';
+import 'package:ontari_app/themes/text_style.dart';
 import 'package:ontari_app/models/model_local.dart';
 import 'package:ontari_app/modules/details/pages/detail_playing_course.dart';
 import 'package:ontari_app/modules/details/widgets/items_course.dart';
 import 'package:ontari_app/modules/details/widgets/items_subjects.dart';
 import 'package:ontari_app/modules/details/widgets/items_subjects_get.dart';
 import 'package:ontari_app/widgets/stateless/common_button.dart';
+
+import '../../../assets/assets_path.dart';
 
 class DetailMentorPage extends StatefulWidget {
   const DetailMentorPage({Key? key}) : super(key: key);
@@ -240,7 +238,7 @@ class _DetailMentorPageState extends State<DetailMentorPage>
                                                     courseItem, context),
                                               ],
                                             ),
-                                            SizedBox(height: 100),
+                                            const SizedBox(height: 100),
                                           ],
                                         ),
                                       ),

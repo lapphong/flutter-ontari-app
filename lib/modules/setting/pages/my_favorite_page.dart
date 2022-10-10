@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:ontari_app/config/themes/app_color.dart';
-import 'package:ontari_app/config/themes/text_style.dart';
-import 'package:ontari_app/constants/assets_path.dart';
 import 'package:ontari_app/models/model_local.dart';
 import 'package:ontari_app/modules/setting/widgets/items_my_favorite.dart';
 import 'package:ontari_app/modules/setting/widgets/title_setting.dart';
@@ -15,7 +10,6 @@ class MyFavoritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DarkTheme.greyScale900,
       body: SafeArea(
           child: SingleChildScrollView(
         child: Padding(

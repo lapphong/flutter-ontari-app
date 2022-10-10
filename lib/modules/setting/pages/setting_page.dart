@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:ontari_app/config/themes/app_color.dart';
-import 'package:ontari_app/config/themes/text_style.dart';
-import 'package:ontari_app/constants/assets_path.dart';
+import 'package:ontari_app/models/user.dart';
+import 'package:ontari_app/themes/app_color.dart';
+import 'package:ontari_app/themes/text_style.dart';
 import 'package:ontari_app/models/model_local.dart';
 import 'package:ontari_app/modules/setting/pages/change_language_page.dart';
 import 'package:ontari_app/modules/setting/pages/download_video_page.dart';
@@ -14,76 +11,135 @@ import 'package:ontari_app/modules/setting/widgets/item_account.dart';
 import 'package:ontari_app/modules/setting/widgets/items_arrow_setting.dart';
 import 'package:ontari_app/modules/setting/widgets/items_toggle_setting.dart';
 import 'package:ontari_app/modules/setting/widgets/title_option_setting.dart';
-import 'package:provider/provider.dart';
 
-import '../../../services/auth.dart';
+import '../../../assets/assets_path.dart';
+import '../../../blocs/app_state_bloc.dart';
+import '../../../providers/bloc_provider.dart';
+import '../../../widgets/stateful/toggle_switch_button.dart';
+import '../../../widgets/stateless/common_button.dart';
 import '../../../widgets/stateless/show_alert_dialog.dart';
+import '../bloc/setting_bloc.dart';
 
-class SettingPage extends StatelessWidget {
+class SettingPage extends StatefulWidget {
   const SettingPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final auth = Provider.of<AuthBase>(context, listen: false);
+  State<SettingPage> createState() => _SettingPageState();
+}
 
+class _SettingPageState extends State<SettingPage> {
+  SettingBloc? get _bloc => BlocProvider.of<SettingBloc>(context);
+  final navigatorKey = GlobalKey<NavigatorState>;
+
+  void _logOut(BuildContext context) {
+    final appStateBloc = BlocProvider.of<AppStateBloc>(context);
+    appStateBloc!.logout();
+  }
+
+  late bool _onValue = false;
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DarkTheme.greyScale900,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+      body: StreamBuilder<User?>(
+        stream: _bloc!.userStream,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final detail = snapshot.data!;
+            return SafeArea(
+              child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 24.0),
-                      child: Text('Setting', style: TxtStyle.titlePage),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 24.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text('Setting',
+                                    style: TxtStyle.titlePage),
+                                const SizedBox(width: 100),
+                                Row(
+                                  children: [
+                                    const Image(
+                                      color: DarkTheme.white,
+                                      image: AssetImage(AssetPath.iconDarkMode),
+                                    ),
+                                    ToggleSwitchButton(
+                                      value: _onValue,
+                                      onChanged: (value) =>
+                                          setState(() => _onValue = value),
+                                    ),
+                                  ],
+                                ),
+                                const SquareButton(
+                                  bgColor: DarkTheme.greyScale800,
+                                  edge: 40,
+                                  radius: 10,
+                                  child: ImageIcon(
+                                    size: 13,
+                                    color: DarkTheme.white,
+                                    AssetImage(AssetPath.iconBell),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SettingAccount(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => EditProfilePage(
+                                    user: detail,
+                                  ),
+                                ),
+                              );
+                              // Navigator.pushNamed(context,
+                              //     RouteName.editProfilePage,
+                              //     arguments: detail);
+                            },
+                            fullName:
+                                '${detail.displayFirstName} ${detail.displayLastName}',
+                            userName: '${detail.displayUserName} ',
+                            assetName: '${detail.imgUrl}',
+                          ),
+                        ],
+                      ),
                     ),
-                    SettingAccount(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (_) => EditProfilePage()),
-                        );
-                      },
-                      fullName: 'Barly Vallendito',
-                      userName: 'barlyvallendito',
-                      assetName: AssetPath.imgAvatar,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      child: buildTitleOptionSettings('ACCOUNT SETTING'),
                     ),
+                    buildListView(accountSetting, 0),
+                    buildTitleOptionSettings('APPLICATION'),
+                    const SizedBox(height: 16),
+                    buildListView(application, 0),
+                    //buildListView(applicationToggle, 1),
+                    const TitleOptionSettings(
+                      height: 16,
+                      color: DarkTheme.greyScale800,
+                    ),
+                    buildLogoutButton(context),
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: buildTitleOptionSettings('ACCOUNT SETTING'),
+            );
+          }
+          if (snapshot.hasError) {
+            return const SliverFillRemaining(
+              child: Center(
+                child: Text('Something went wrong'),
               ),
-              buildListView(accountSetting, 0),
-              buildTitleOptionSettings('APPLICATION'),
-              const SizedBox(height: 16),
-              buildListView(application, 0),
-              buildListView(applicationToggle, 1),
-              TitleOptionSettings(
-                height: 16,
-                color: DarkTheme.greyScale800,
-              ),
-              buildLogoutButton(context),
-            ],
-          ),
-        ),
+            );
+          }
+          return const Center(child: CircularProgressIndicator());
+        },
       ),
     );
-  }
-
-  Future<void> _signOut(BuildContext context) async {
-    try {
-      final auth = Provider.of<AuthBase>(context, listen: false);
-      await auth.signOut();
-    } catch (e) {
-      print(e.toString());
-    }
   }
 
   Future<void> _confirmSignOut(BuildContext context) async {
@@ -95,7 +151,7 @@ class SettingPage extends StatelessWidget {
       defaultActionText: 'Logout',
     );
     if (didRequestSignOut == true) {
-      _signOut(context);
+      _logOut(context);
     }
   }
 
@@ -105,11 +161,6 @@ class SettingPage extends StatelessWidget {
       child: TextButton(
         onPressed: () {
           _confirmSignOut(context);
-          // showCupertinoDialog(
-          //   context: context,
-          //   builder: createDialog,
-          // );
-          //showDialog(context: context, builder: createDialog);
         },
         child: const Text(
           'Logout',
@@ -127,7 +178,6 @@ class SettingPage extends StatelessWidget {
   }
 
   // check == 0 : item child ListView is arrow right
-  // check == 1 : item child ListView is toggle button
   ListView buildListView(List<ModelSetting> list, int check) {
     return ListView.builder(
       shrinkWrap: true,
@@ -148,6 +198,9 @@ class SettingPage extends StatelessWidget {
             : Padding(
                 padding: const EdgeInsets.only(left: 24, right: 24, bottom: 16),
                 child: ItemsToggleSetting(
+                  onTap: () {
+                    chooseOption(context, index, list);
+                  },
                   assetName: list[index].iconUrl,
                   title: list[index].title,
                 ),
@@ -156,12 +209,25 @@ class SettingPage extends StatelessWidget {
     );
   }
 
+  void chooseOption(BuildContext context, int index, List<ModelSetting> list) {
+    if (list == applicationToggle) {
+      switch (index) {
+        case 0:
+          print('Notification');
+          break;
+        case 1:
+          print('Dark mode');
+          break;
+      }
+    }
+  }
+
   goToPage(BuildContext context, int index, List<ModelSetting> list) {
     if (list == application) {
       switch (index) {
         case 0:
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => DownloadVideoPage()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (_) => DownloadVideoPage()));
           break;
         case 1:
           Navigator.of(context)

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../config/themes/text_style.dart';
+import '../../../themes/text_style.dart';
 import '../../../widgets/stateless/common_bodyitem.dart';
 
 class ItemsCategoryOffice extends StatelessWidget {
@@ -15,8 +15,8 @@ class ItemsCategoryOffice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BodyItem(
-      assetName: assetName,
+    return BodyItemAsset(
+      assetName: assetName!,
       widthImg: 64,
       height: 64,
       mid: Padding(
@@ -40,7 +40,7 @@ class ItemsCategoryOffice extends StatelessWidget {
         ),
       ),
       //childImg: ,
-      right: Text(''),
+      right: const Text(''),
     );
   }
 }

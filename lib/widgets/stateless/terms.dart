@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../config/themes/text_style.dart';
-import '../../constants/assets_path.dart';
+import '../../assets/assets_path.dart';
+import '../../themes/text_style.dart';
 
 class Terms extends StatefulWidget {
   const Terms({
@@ -38,11 +38,11 @@ class _TermsState extends State<Terms> {
             RichText(
               text: const TextSpan(
                 text: 'By Creating your account you have to agree with\nour',
-                style: TxtStyle.Term,
+                style: TxtStyle.term,
                 children: <TextSpan>[
                   TextSpan(
                     text: ' Terms and Condition',
-                    style: TxtStyle.TermBold,
+                    style: TxtStyle.termBold,
                   ),
                 ],
               ),

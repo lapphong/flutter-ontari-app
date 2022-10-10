@@ -46,47 +46,34 @@ dependencies:
   google_sign_in: ^5.4.1
   flutter_facebook_auth: ^4.4.1
   flutter_login_facebook: ^1.6.0
+  flutter_bloc: ^8.1.1
+  equatable: ^2.0.5
+  dio: ^4.0.6
+  http: ^0.13.5
+  rxdart: ^0.27.5
+  go_router: ^4.3.0
+  shared_preferences: ^2.0.15
+  path_provider: ^2.0.11
+  json_annotation: ^4.6.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
+  
   flutter_lints: ^2.0.0
+  build_runner: ^2.2.1
+  json_serializable: ^6.3.2
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
+  #generate: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
     - assets/videos/
     - assets/images/2x/
     - assets/images/3x/
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
   fonts:
     - family: manrope
       fonts:
@@ -96,6 +83,3 @@ flutter:
           weight: 700
         - asset: assets/fonts/Manrope-Bold.ttf
           weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages

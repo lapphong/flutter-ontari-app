@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../config/themes/text_style.dart';
-import '../../../constants/assets_path.dart';
+import '../../../assets/assets_path.dart';
+import '../../../themes/text_style.dart';
 import '../../../widgets/stateless/common_bodyitem.dart';
 
 class ItemsSubjectsGet extends StatelessWidget {
@@ -15,7 +15,7 @@ class ItemsSubjectsGet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BodyItem(
+    return BodyItemAsset(
       assetName: AssetPath.imgBackgroundItems,
       height: 32,
       widthImg: 32,

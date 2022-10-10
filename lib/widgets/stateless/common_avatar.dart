@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/assets_path.dart';
 
 class CustomAvatar extends StatelessWidget {
   final double height;

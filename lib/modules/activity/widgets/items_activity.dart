@@ -3,14 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-import '../../../config/themes/app_color.dart';
-import '../../../config/themes/text_style.dart';
-import '../../../constants/assets_path.dart';
+import '../../../assets/assets_path.dart';
+import '../../../themes/app_color.dart';
+import '../../../themes/text_style.dart';
 import '../../../widgets/stateless/common_bodyitem.dart';
 import '../../../widgets/stateless/common_button.dart';
 
 class ItemsActivity extends StatelessWidget {
-  ItemsActivity({
+  const ItemsActivity({
     Key? key,
     this.assetName,
     this.title,
@@ -19,8 +19,8 @@ class ItemsActivity extends StatelessWidget {
     required this.onTap,
   }) : super(key: key);
 
-  String? assetName, title, name; //,percentText;
-  double? percent;
+  final String? assetName, title, name; //,percentText;
+  final double? percent;
   final VoidCallback? onTap;
 
   @override
@@ -28,11 +28,11 @@ class ItemsActivity extends StatelessWidget {
     int percentText = (percent! * 100).toInt();
     return Column(
       children: [
-        BodyItem(
+        BodyItemAsset(
           onTap: onTap,
           height: 64,
           widthImg: 64,
-          assetName: assetName,
+          assetName: assetName!,
           mid: Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: Column(

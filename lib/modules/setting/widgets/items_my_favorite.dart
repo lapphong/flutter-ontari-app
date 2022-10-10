@@ -2,15 +2,15 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../../config/themes/app_color.dart';
-import '../../../config/themes/text_style.dart';
-import '../../../constants/assets_path.dart';
+import '../../../assets/assets_path.dart';
+import '../../../themes/app_color.dart';
+import '../../../themes/text_style.dart';
 import '../../../models/model_local.dart';
 import '../../../widgets/stateless/common_bodyitem.dart';
 import '../../../widgets/stateless/common_button.dart';
 
 class ItemsMyFavorite extends StatelessWidget {
-  ItemsMyFavorite({
+  const ItemsMyFavorite({
     Key? key,
     this.assetName,
     this.title,
@@ -19,17 +19,17 @@ class ItemsMyFavorite extends StatelessWidget {
   }) : super(key: key);
 
   final String? assetName, title, name;
-  VoidCallback? onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BodyItem(
+        BodyItemAsset(
           onTap: onTap,
           height: 64,
           widthImg: 64,
-          assetName: assetName,
+          assetName: assetName!,
           mid: Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: Column(

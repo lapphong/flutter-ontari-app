@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../config/themes/app_color.dart';
+import '../themes/app_color.dart';
 
 void showSnackBar(BuildContext context, String text, Widget image) {
   final snackBar = SnackBar(
