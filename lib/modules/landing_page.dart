@@ -69,7 +69,8 @@ class _LandingPageState extends State<LandingPage> {
               scaffoldBackgroundColor: DarkTheme.greyScale900,
               fontFamily: 'manrope',
               textTheme: Theme.of(context).textTheme.apply(
-                  bodyColor: DarkTheme.white, displayColor: DarkTheme.white),
+                  bodyColor: DarkTheme.white,
+                  displayColor: DarkTheme.white),
             ),
             key: key,
             builder: _builder,

@@ -38,7 +38,7 @@ class ItemsSubjects extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   title!,
-                  style: TxtStyle.currentPlan,
+                  style: TxtStyle.subjectText,
                 ),
               ),
             ),

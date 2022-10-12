@@ -35,11 +35,13 @@ class ItemsCourse extends StatelessWidget {
               children: [
                 Text(
                   title!,
-                  style: TxtStyle.titleCourseList,
+                  style: TxtStyle.courseText,
                 ),
                 Text(
                   part!,
-                  style: TxtStyle.headline5MediumWhite,
+                  style: TxtStyle.headline5.copyWith(
+                    color: DarkTheme.greyScale500,
+                  ),
                 ),
               ],
             ),
@@ -78,7 +80,7 @@ class ItemsCourse extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     time!,
-                    style: TxtStyle.textTimeCourse,
+                    style: TxtStyle.timeText,
                   ),
                 ),
               ),

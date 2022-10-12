@@ -83,10 +83,14 @@ class _DetailMentorPageState extends State<DetailMentorPage>
                                   controller: _tabController,
                                   physics: const NeverScrollableScrollPhysics(),
                                   indicatorSize: TabBarIndicatorSize.tab,
-                                  labelStyle: TxtStyle.headline4blue,
+                                  labelStyle: TxtStyle.headline4.copyWith(
+                                    color: DarkTheme.primaryBlue600,
+                                  ),
                                   unselectedLabelColor: DarkTheme.greyScale500,
                                   unselectedLabelStyle:
-                                      TxtStyle.headline4GreyTab,
+                                      TxtStyle.headline4.copyWith(
+                                    color: DarkTheme.greyScale500,
+                                  ),
                                   labelColor: DarkTheme.primaryBlue600,
                                   indicatorColor: DarkTheme.primaryBlue600,
                                 ),
@@ -119,26 +123,29 @@ class _DetailMentorPageState extends State<DetailMentorPage>
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
-                                              children: const [
-                                                Padding(
+                                              children: [
+                                                const Padding(
                                                   padding: EdgeInsets.only(
                                                       top: 24.0, bottom: 14),
-                                                  child: Text('Discover',
-                                                      style: TxtStyle
-                                                          .headline3SemiBoldWhite),
+                                                  child: Text(
+                                                    'Discover',
+                                                    style: TxtStyle.headline3,
+                                                  ),
                                                 ),
                                                 Text(
                                                   'What are people most afraid of? What do our\ndreams mean? Are we natural-born racists? What\nmakes us happy? What are the causes and cures\nof mental illness? This course tries to answer\nthese questions and many others, providing a\ncomprehensive overview of the scientific study.',
-                                                  style: TxtStyle
-                                                      .headline5MediumWhite,
+                                                  style: TxtStyle.headline4
+                                                      .copyWith(
+                                                    color:
+                                                        DarkTheme.greyScale500,
+                                                  ),
                                                 ),
-                                                Padding(
+                                                const Padding(
                                                   padding: EdgeInsets.only(
                                                       top: 24.0, bottom: 14),
                                                   child: Text(
                                                     'What you\'ll learn',
-                                                    style: TxtStyle
-                                                        .headline3SemiBoldWhite,
+                                                    style: TxtStyle.headline3,
                                                   ),
                                                 ),
                                               ],
@@ -158,7 +165,7 @@ class _DetailMentorPageState extends State<DetailMentorPage>
                                                   child: Text(
                                                     'What you\'ll get',
                                                     style: TxtStyle
-                                                        .headline3SemiBoldWhite,
+                                                        .headline3,
                                                   ),
                                                 ),
                                                 buildListViewGet(subjectsGet),
@@ -177,12 +184,12 @@ class _DetailMentorPageState extends State<DetailMentorPage>
                                                           Text(
                                                             'Requirements',
                                                             style: TxtStyle
-                                                                .headline3SemiBoldWhite,
+                                                                .headline3,
                                                           ),
                                                           Text(
                                                             'Understanding of The English Language',
                                                             style: TxtStyle
-                                                                .headline4SemiBoldWhite,
+                                                                .headline4,
                                                           ),
                                                           Text(''),
                                                         ],
@@ -420,11 +427,11 @@ class ImageHeader extends SliverPersistentHeaderDelegate {
                     children: const [
                       Text(
                         'CRISTOPHER HARITZ',
-                        style: TxtStyle.headline3SemiBoldWhite,
+                        style: TxtStyle.headline3
                       ),
                       Text(
                         'Teaches Psychology',
-                        style: TxtStyle.headline4SemiBoldWhite,
+                        style: TxtStyle.headline4,
                       ),
                     ],
                   ),

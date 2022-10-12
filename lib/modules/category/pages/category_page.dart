@@ -44,7 +44,7 @@ class _CategoryPageState extends State<CategoryPage> {
                 ),
                 const Text(
                   'Category',
-                  style: TxtStyle.headline3SemiBoldWhite,
+                  style: TxtStyle.headline3,
                 ),
                 buildListView(category),
               ],
@@ -78,7 +78,7 @@ class _CategoryPageState extends State<CategoryPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: const [
-          Text('Category', style: TxtStyle.titlePage),
+          Text('Category', style: TxtStyle.title),
           SquareButton(
             bgColor: DarkTheme.greyScale800,
             edge: 40,

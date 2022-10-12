@@ -25,7 +25,7 @@ class TextFieldEmail extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Email Address', style: TxtStyle.titleInput),
+        const Text('Email Address', style: TxtStyle.headline4),
         const SizedBox(height: 10),
         SizedBox(
           height: 52,
@@ -55,7 +55,8 @@ class TextFieldEmail extends StatelessWidget {
                 ),
               ),
               hintText: 'Enter your email address',
-              hintStyle: TxtStyle.hintText,
+              hintStyle:
+                  TxtStyle.headline4.copyWith(color: DarkTheme.greyScale500),
               prefixIcon: const Align(
                 widthFactor: 0.5,
                 heightFactor: 0.5,
@@ -101,7 +102,7 @@ class _TextFieldPasswordState extends State<TextFieldPassword> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Password', style: TxtStyle.titleInput),
+        const Text('Password', style: TxtStyle.headline4),
         const SizedBox(height: 16),
         SizedBox(
           height: 52,
@@ -130,7 +131,8 @@ class _TextFieldPasswordState extends State<TextFieldPassword> {
                 ),
               ),
               hintText: 'Enter your password',
-              hintStyle: TxtStyle.hintText,
+              hintStyle:
+                  TxtStyle.headline4.copyWith(color: DarkTheme.greyScale500),
               prefixIcon: const Align(
                 widthFactor: 0.5,
                 heightFactor: 0.5,
@@ -202,7 +204,7 @@ class _TextFieldSearchBarState extends State<TextFieldSearchBar> {
             ),
           ),
           hintText: widget.hintText,
-          hintStyle: TxtStyle.hintText,
+          hintStyle: TxtStyle.headline4.copyWith(color: DarkTheme.greyScale500),
           prefixIcon: Align(
             widthFactor: 0.5,
             heightFactor: 0.5,
@@ -250,7 +252,7 @@ class InputCode extends StatelessWidget {
         keyboardAppearance: Brightness.dark,
         textAlign: TextAlign.center,
         keyboardType: TextInputType.number,
-        style: TxtStyle.headline4White,
+        style: TxtStyle.headline4,
         inputFormatters: [
           LengthLimitingTextInputFormatter(1),
           FilteringTextInputFormatter.digitsOnly,

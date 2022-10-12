@@ -71,11 +71,13 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(height: 21),
                             Text(
                               'Hi, ${detail.displayFirstName} ${detail.displayLastName}',
-                              style: TxtStyle.headline2BoldWhite,
+                              style: TxtStyle.headline2,
                             ),
-                            const Text(
+                            Text(
                               'Welcome back to ontari, Explore Course',
-                              style: TxtStyle.headline5MediumWhite,
+                              style: TxtStyle.headline5.copyWith(
+                                color: DarkTheme.greyScale500,
+                              ),
                             ),
                             const SizedBox(height: 16),
                             TextFieldSearchBar(
@@ -94,15 +96,17 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 const Text(
                                   'Best Mentors',
-                                  style: TxtStyle.headline3SemiBoldWhite,
+                                  style: TxtStyle.headline3,
                                 ),
                                 TextButton(
                                   onPressed: () {
                                     //print('aaa');
                                   },
-                                  child: const Text(
+                                  child: Text(
                                     'See all',
-                                    style: TxtStyle.headline6MediumBlue,
+                                    style: TxtStyle.headline6.copyWith(
+                                      color: DarkTheme.primaryBlue600,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -115,15 +119,17 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 const Text(
                                   'Class Preview',
-                                  style: TxtStyle.headline3SemiBoldWhite,
+                                  style: TxtStyle.headline3,
                                 ),
                                 TextButton(
                                   onPressed: () {
                                     //print('aaa');
                                   },
-                                  child: const Text(
+                                  child: Text(
                                     'See all',
-                                    style: TxtStyle.headline6MediumBlue,
+                                    style: TxtStyle.headline6.copyWith(
+                                      color: DarkTheme.primaryBlue600,
+                                    ),
                                   ),
                                 ),
                               ],

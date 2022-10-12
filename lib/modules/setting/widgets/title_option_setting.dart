@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ontari_app/themes/app_color.dart';
 
 import '../../../themes/text_style.dart';
 
@@ -26,7 +27,7 @@ class TitleOptionSettings extends StatelessWidget {
           padding: const EdgeInsets.only(left: 24.0),
           child: Text(
             title,
-            style: TxtStyle.headline6MediumGrey,
+            style: TxtStyle.headline6.copyWith(color: DarkTheme.greyScale500),
           ),
         ),
       ),

@@ -41,7 +41,7 @@ class Subscription extends StatelessWidget {
                 children: [
                   Text(
                     title!,
-                    style: TxtStyle.headline4White2,
+                    style: TxtStyle.headline4,
                   ),
                   SizedBox(
                       width: 32,
@@ -65,11 +65,11 @@ class Subscription extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   text: money!,
-                  style: TxtStyle.headline1BoldWhite,
+                  style: TxtStyle.headline1,
                   children: const <TextSpan>[
                     TextSpan(
                       text: ' /Month',
-                      style: TxtStyle.headline5MediumWhite2,
+                      style: TxtStyle.headline5,
                     ),
                   ],
                 ),
@@ -83,7 +83,7 @@ class Subscription extends StatelessWidget {
                 child: Center(
                   child: Text(
                     textButton!,
-                    style: TxtStyle.currentPlan,
+                    style: TxtStyle.subjectText,
                   ),
                 ),
               ),

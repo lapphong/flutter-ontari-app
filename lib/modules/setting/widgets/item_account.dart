@@ -33,11 +33,11 @@ class SettingAccount extends StatelessWidget {
           children: [
             Text(
               fullName!,
-              style: TxtStyle.headline3SemiBoldWhite,
+              style: TxtStyle.headline3,
             ),
             Text(
               userName!,
-              style: TxtStyle.headline5MediumWhite,
+              style: TxtStyle.headline5.copyWith(color: DarkTheme.greyScale500),
             ),
           ],
         ),

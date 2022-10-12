@@ -35,7 +35,7 @@ class TitleSetting extends StatelessWidget {
           const SizedBox(width: 16),
           Text(
             title!,
-            style: TxtStyle.headline3SemiBoldWhite,
+            style: TxtStyle.headline3,
           ),
         ],
       ),

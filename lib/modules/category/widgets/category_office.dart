@@ -36,11 +36,11 @@ class CategoryOffice extends StatelessWidget {
               children: [
                 Text(
                   title!,
-                  style: TxtStyle.headline4SemiBoldWhite,
+                  style: TxtStyle.headline4,
                 ),
                 Text(
                   countMentor!,
-                  style: TxtStyle.headline6MediumGrey,
+                  style: TxtStyle.headline6,
                 ),
               ],
             ),

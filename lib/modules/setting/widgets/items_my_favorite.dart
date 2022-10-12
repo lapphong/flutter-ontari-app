@@ -38,11 +38,11 @@ class ItemsMyFavorite extends StatelessWidget {
               children: [
                 Text(
                   title!,
-                  style: TxtStyle.headline4SemiBoldWhite,
+                  style: TxtStyle.headline4,
                 ),
                 Text(
                   name!,
-                  style: TxtStyle.headline6MediumGrey,
+                  style: TxtStyle.headline6.copyWith(color: DarkTheme.greyScale500),
                 ),
               ],
             ),
@@ -123,7 +123,7 @@ class ItemsMyFavorite extends StatelessWidget {
             const SizedBox(width: 14),
             Text(
               item.title,
-              style: TxtStyle.headline5MediumWhite2,
+              style: TxtStyle.headline5,
             ),
           ],
         ),

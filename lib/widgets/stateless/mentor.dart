@@ -45,12 +45,12 @@ class Mentor extends StatelessWidget {
             const SizedBox(height: 12),
             Text(
               title!,
-              style: TxtStyle.headline6MediumGrey,
+              style: TxtStyle.headline6.copyWith(color: DarkTheme.greyScale500),
             ),
             const SizedBox(height: 6),
             Text(
               name!,
-              style: TxtStyle.headline4SemiBoldWhite,
+              style: TxtStyle.headline4,
             ),
           ],
         ),

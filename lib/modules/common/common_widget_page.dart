@@ -125,10 +125,12 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
                   radius: 7,
                   color: DarkTheme.white,
                   colorRadius: DarkTheme.primaryBlue900,
-                  child: const Center(
+                  child: Center(
                       child: Text(
                     'Change Avatar',
-                    style: TxtStyle.buttonSmallSemiBold,
+                    style: TxtStyle.buttonSmall.copyWith(
+                      color: DarkTheme.primaryBlue600,
+                    ),
                   )),
                 ),
                 const Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
@@ -338,10 +340,12 @@ class _CommonWidgetPageState extends State<CommonWidgetPage> {
                     colorRadius: DarkTheme.yellow.withOpacity(0.1),
                     height: 32,
                     color: DarkTheme.yellow.withOpacity(0.1),
-                    child: const Center(
+                    child: Center(
                         child: Text(
                       'COURSE PART 1',
-                      style: TxtStyle.textCourse,
+                      style: TxtStyle.headline6.copyWith(
+                        color: DarkTheme.yellow,
+                      ),
                     )),
                   ),
                   const SizedBox(

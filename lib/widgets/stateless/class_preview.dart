@@ -49,7 +49,7 @@ class ClassPreview extends StatelessWidget {
                 child: Text(
                   textAlign: TextAlign.center,
                   'Preview',
-                  style: TxtStyle.headline6MediumWhite,
+                  style: TxtStyle.headline6,
                 ),
               ),
             ),
@@ -97,7 +97,7 @@ class ClassPreview extends StatelessWidget {
               child: Center(
                 child: Text(
                   title,
-                  style: TxtStyle.headline4SemiBoldWhite,
+                  style: TxtStyle.headline4,
                 ),
               ),
             ),

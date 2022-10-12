@@ -13,9 +13,9 @@ class ActivityEmpty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        SizedBox(height: 40),
-        SquareButton(
+      children: [
+        const SizedBox(height: 40),
+        const SquareButton(
           edge: 56,
           radius: 9.69,
           bgColor: DarkTheme.greyScale800,
@@ -28,17 +28,19 @@ class ActivityEmpty extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 24),
-        Text(
+        const SizedBox(height: 24),
+        const Text(
           'Empty Course',
-          style: TxtStyle.headline3SemiBoldWhite,
+          style: TxtStyle.headline3,
         ),
         Text(
           'Search your course again ',
-          style: TxtStyle.headline5MediumWhite,
+          style: TxtStyle.headline5.copyWith(
+            color: DarkTheme.greyScale500,
+          ),
         ),
-        SizedBox(height: 32),
-        ClassicButton(
+        const SizedBox(height: 32),
+        const ClassicButton(
           color: DarkTheme.primaryBlue600,
           radius: 12,
           widthRadius: 0,
@@ -47,7 +49,7 @@ class ActivityEmpty extends StatelessWidget {
           height: 52,
           child: Text(
             'Explore',
-            style: TxtStyle.headline4SemiBoldWhite,
+            style: TxtStyle.buttonMedium,
           ),
         ),
       ],

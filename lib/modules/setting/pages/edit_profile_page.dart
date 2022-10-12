@@ -143,7 +143,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         ClassicButton(
                           widthRadius: 2,
                           width: 117,
@@ -154,13 +154,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           child: Center(
                             child: Text(
                               'Change Avatar',
-                              style: TxtStyle.headline6MediumBlue,
+                              style: TxtStyle.buttonSmall.copyWith(
+                                color: DarkTheme.primaryBlue600,
+                              ),
                             ),
                           ),
                         ),
                         Text(
                           'Edit avatar are visible only on ontari.',
-                          style: TxtStyle.headline6MediumGrey,
+                          style: TxtStyle.headline6.copyWith(
+                            color: DarkTheme.greyScale500,
+                          ),
                         ),
                       ],
                     ),
@@ -207,7 +211,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: TxtStyle.headline4SemiBoldWhite),
+        Text(title, style: TxtStyle.headline3),
         const SizedBox(height: 10),
         TextFieldSearchBar(
           hintText: hintText,

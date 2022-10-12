@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ontari_app/themes/app_color.dart';
 
 import '../../../themes/text_style.dart';
 import '../../../widgets/stateless/common_bodyitem.dart';
@@ -29,11 +30,13 @@ class ItemsCategoryOffice extends StatelessWidget {
             children: [
               Text(
                 title!,
-                style: TxtStyle.titleItemActivity,
+                style: TxtStyle.headline4,
               ),
               Text(
                 name!,
-                style: TxtStyle.headline6MediumGrey,
+                style: TxtStyle.headline6.copyWith(
+                  color: DarkTheme.greyScale500,
+                ),
               ),
             ],
           ),

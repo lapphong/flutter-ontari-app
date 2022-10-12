@@ -24,7 +24,7 @@ class ItemsSubjectsGet extends StatelessWidget {
         child: Center(
           child: Text(
             title!,
-            style: TxtStyle.headline4SemiBoldWhite,
+            style: TxtStyle.headline4,
           ),
         ),
       ),

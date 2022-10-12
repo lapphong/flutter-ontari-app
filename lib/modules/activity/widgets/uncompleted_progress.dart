@@ -31,7 +31,7 @@ class UncompletedProgress extends StatelessWidget {
             padding: EdgeInsets.all(24.0),
             child: Text(
               'Your Today\'s Progress\nAlmost Done!',
-              style: TxtStyle.headline2BoldWhite,
+              style: TxtStyle.headline2,
               textAlign: TextAlign.center,
             ),
           ),
@@ -46,7 +46,7 @@ class UncompletedProgress extends StatelessWidget {
             circularStrokeCap: CircularStrokeCap.round,
             center: Text(
               '$percentText%',
-              style: TxtStyle.indicatorActivity,
+              style: TxtStyle.percent,
             ),
           ),
           const SizedBox(height: 32),
@@ -64,11 +64,11 @@ class UncompletedProgress extends StatelessWidget {
                   RichText(
                     text: TextSpan(
                       text: percentCompleted.toString(),
-                      style: TxtStyle.headline3SemiBoldWhite,
-                      children: <TextSpan>[
+                      style: TxtStyle.headline3,
+                      children: const <TextSpan>[
                         TextSpan(
                           text: ' Completed',
-                          style: TxtStyle.headline4SemiBoldWhiteOpacity,
+                          style: TxtStyle.headline4,
                         ),
                       ],
                     ),
@@ -83,11 +83,11 @@ class UncompletedProgress extends StatelessWidget {
                   RichText(
                     text: TextSpan(
                       text: percentUnCompleted.toString(),
-                      style: TxtStyle.headline3SemiBoldWhite,
-                      children: <TextSpan>[
+                      style: TxtStyle.headline3,
+                      children: const <TextSpan>[
                         TextSpan(
                           text: ' Uncompleted',
-                          style: TxtStyle.headline4SemiBoldWhiteOpacity,
+                          style: TxtStyle.headline4,
                         ),
                       ],
                     ),

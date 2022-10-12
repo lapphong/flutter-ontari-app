@@ -15,8 +15,8 @@ Future<bool?> showAlertDialog(
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(title, style: TxtStyle.headline3SemiBold),
-        content: Text(content, style: TxtStyle.headline3SemiBold),
+        title: Text(title, style: TxtStyle.headline3),
+        content: Text(content, style: TxtStyle.headline3),
         actions: <Widget>[
           if (cancelActionText != null)
             TextButton(

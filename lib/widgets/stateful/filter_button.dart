@@ -29,7 +29,7 @@ class _FilterButtonState extends State<FilterButton> {
             ),
         child: Text(
           widget.content!,
-          style: TxtStyle.headline2Bold,
+          style: TxtStyle.headline2,
         ),
       ),
     );

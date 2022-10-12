@@ -39,8 +39,10 @@ class _ItemLanguageState extends State<ItemLanguage> {
               child: Text(
                 widget.nameLang!,
                 style: _isSelected!
-                    ? TxtStyle.headline4blue
-                    : TxtStyle.headline4SemiBoldWhite,
+                    ? TxtStyle.headline4.copyWith(
+                        color: DarkTheme.primaryBlue600,
+                      )
+                    : TxtStyle.headline4,
               ),
             ),
           ),

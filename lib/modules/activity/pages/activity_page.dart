@@ -74,10 +74,14 @@ class _ActivityPageState extends State<ActivityPage>
                   labelColor: DarkTheme.primaryBlue600,
                   controller: _tabController,
                   indicatorSize: TabBarIndicatorSize.tab,
-                  labelStyle: TxtStyle.headline4blue,
+                  labelStyle: TxtStyle.headline4.copyWith(
+                    color: DarkTheme.primaryBlue600,
+                  ),
                   unselectedLabelColor: DarkTheme.greyScale500,
                   physics: const NeverScrollableScrollPhysics(),
-                  unselectedLabelStyle: TxtStyle.headline4GreyTab,
+                  unselectedLabelStyle: TxtStyle.headline4.copyWith(
+                    color: DarkTheme.greyScale500,
+                  ),
                   indicatorColor: DarkTheme.primaryBlue600,
                 ),
               ),
@@ -156,7 +160,10 @@ class _ActivityPageState extends State<ActivityPage>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: const [
-          Text('Activity', style: TxtStyle.titlePage),
+          Text(
+            'Activity',
+            style: TxtStyle.title,
+          ),
           SquareButton(
             bgColor: DarkTheme.greyScale800,
             edge: 40,

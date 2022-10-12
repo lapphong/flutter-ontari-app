@@ -31,9 +31,14 @@ class ItemsDownloadVideo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(part!, style: TxtStyle.textCourse),
-                Text(title!, style: TxtStyle.headline4SemiBoldWhite),
-                Text(name!, style: TxtStyle.headline5MediumWhite),
+                Text(
+                  part!,
+                  style: TxtStyle.headline6.copyWith(
+                    color: DarkTheme.yellow,
+                  ),
+                ),
+                Text(title!, style: TxtStyle.headline4),
+                Text(name!, style: TxtStyle.headline5),
               ],
             ),
           ),
@@ -53,7 +58,7 @@ class ItemsDownloadVideo extends StatelessWidget {
                   alignment: Alignment.center,
                   child: const Text(
                     '10:09',
-                    style: TxtStyle.textTimeCourse,
+                    style: TxtStyle.timeText,
                   ),
                 ),
               ),
@@ -115,7 +120,7 @@ class ItemsDownloadVideo extends StatelessWidget {
             const SizedBox(width: 14),
             Text(
               item.title,
-              style: TxtStyle.headline5MediumWhite2,
+              style: TxtStyle.headline5,
             ),
           ],
         ),

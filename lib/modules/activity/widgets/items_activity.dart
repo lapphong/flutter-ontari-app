@@ -41,11 +41,13 @@ class ItemsActivity extends StatelessWidget {
               children: [
                 Text(
                   title!,
-                  style: TxtStyle.headline4SemiBoldWhite,
+                  style: TxtStyle.headline4,
                 ),
                 Text(
                   name!,
-                  style: TxtStyle.headline6MediumGrey,
+                  style: TxtStyle.headline6.copyWith(
+                    color: DarkTheme.greyScale500,
+                  ),
                 ),
                 LinearPercentIndicator(
                   barRadius: const Radius.circular(10),
@@ -57,7 +59,9 @@ class ItemsActivity extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 10),
                   trailing: Text(
                     "$percentText%",
-                    style: TxtStyle.headline6MediumGrey,
+                    style: TxtStyle.headline6.copyWith(
+                      color: DarkTheme.greyScale500,
+                    ),
                   ),
                 ),
               ],

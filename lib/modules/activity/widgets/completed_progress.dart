@@ -40,7 +40,7 @@ class CompletedProgress extends StatelessWidget {
                 circularStrokeCap: CircularStrokeCap.round,
                 center: const Text(
                   '100%',
-                  style: TxtStyle.currentPlan,
+                  style: TxtStyle.buttonSmall,
                 ),
               ),
               SizedBox(
@@ -50,14 +50,14 @@ class CompletedProgress extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
+                    children: const [
+                      Text(
                         'Great work!',
-                        style: TxtStyle.headline3SemiBoldWhite,
+                        style: TxtStyle.headline3,
                       ),
                       Text(
                         'You finished all of your courses',
-                        style: TxtStyle.textFinished,
+                        style: TxtStyle.bodyRegular,
                       ),
                     ],
                   ),

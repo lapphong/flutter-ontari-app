@@ -9,7 +9,6 @@ import 'package:video_player/video_player.dart';
 
 import '../../../assets/assets_path.dart';
 
-
 class PlayingCoursePage extends StatefulWidget {
   //final ModelCourse modelCourse;
   final int index;
@@ -131,7 +130,7 @@ class _PlayingCoursePageState extends State<PlayingCoursePage> {
                                 alignment: Alignment.center,
                                 child: const Text(
                                   '10:09',
-                                  style: TxtStyle.textTimeCourse,
+                                  style: TxtStyle.headline6,
                                 ),
                               ),
                             ),
@@ -160,7 +159,9 @@ class _PlayingCoursePageState extends State<PlayingCoursePage> {
                             child: Center(
                                 child: Text(
                               courseItem[widget.index].part!.toUpperCase(),
-                              style: TxtStyle.textCourse,
+                              style: TxtStyle.buttonSmall.copyWith(
+                                color: DarkTheme.yellow,
+                              ),
                             )),
                           ),
                           Image.asset(
@@ -175,15 +176,17 @@ class _PlayingCoursePageState extends State<PlayingCoursePage> {
                     Text(
                       courseItem[widget.index].title,
                       maxLines: 1,
-                      style: TxtStyle.headline2BoldWhite,
+                      style: TxtStyle.headline2,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 4.0, bottom: 16),
                       child: Row(
                         children: [
-                          const Text(
+                          Text(
                             'James Haritz',
-                            style: TxtStyle.headline5MediumWhite2,
+                            style: TxtStyle.headline5.copyWith(
+                              color: DarkTheme.greyScale500,
+                            ),
                           ),
                           Padding(
                             padding:
@@ -197,22 +200,26 @@ class _PlayingCoursePageState extends State<PlayingCoursePage> {
                               ),
                             ),
                           ),
-                          const Text(
+                          Text(
                             'Teaching Psychology',
-                            style: TxtStyle.headline5MediumWhite2,
+                            style: TxtStyle.headline5.copyWith(
+                              color: DarkTheme.greyScale500,
+                            ),
                           ),
                         ],
                       ),
                     ),
                     RichText(
-                      text: const TextSpan(
+                      text: TextSpan(
                         text:
                             'In this meeting i want introduce myself and talk\nabout this course about social psychology. Th...\n',
-                        style: TxtStyle.headline5MediumWhite,
+                        style: TxtStyle.headline5,
                         children: <TextSpan>[
                           TextSpan(
                             text: 'Show All',
-                            style: TxtStyle.headline4blue,
+                            style: TxtStyle.bodyMedium.copyWith(
+                              color: DarkTheme.primaryBlue600,
+                            ),
                           ),
                         ],
                       ),
@@ -226,14 +233,14 @@ class _PlayingCoursePageState extends State<PlayingCoursePage> {
                     widget.index == courseItem.length - 1
                         ? const Text(
                             'THE END',
-                            style: TxtStyle.indicatorActivity,
+                            style: TxtStyle.headline1,
                           )
                         : Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Text(
                                 'Next Video',
-                                style: TxtStyle.headline3SemiBoldWhite,
+                                style: TxtStyle.buttonLarge,
                               ),
                               const SizedBox(height: 16),
                               buildListDownloadVideo(

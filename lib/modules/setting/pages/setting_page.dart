@@ -60,8 +60,7 @@ class _SettingPageState extends State<SettingPage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text('Setting',
-                                    style: TxtStyle.titlePage),
+                                const Text('Setting', style: TxtStyle.title),
                                 const SizedBox(width: 100),
                                 Row(
                                   children: [
@@ -162,9 +161,9 @@ class _SettingPageState extends State<SettingPage> {
         onPressed: () {
           _confirmSignOut(context);
         },
-        child: const Text(
+        child: Text(
           'Logout',
-          style: TxtStyle.textLogout,
+          style: TxtStyle.headline4.copyWith(color: DarkTheme.red),
         ),
       ),
     );

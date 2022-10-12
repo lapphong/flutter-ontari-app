@@ -38,7 +38,7 @@ class _ItemsToggleSettingState extends State<ItemsToggleSetting> {
           child: Center(
             child: Text(
               widget.title!,
-              style: TxtStyle.headline4SemiBoldWhite,
+              style: TxtStyle.headline4,
             ),
           ),
         ),

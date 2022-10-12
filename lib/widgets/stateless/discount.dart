@@ -37,15 +37,16 @@ class Discount extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 23.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       'Get 20% Discount',
-                      style: TxtStyle.headline3SemiBoldWhite,
+                      style: TxtStyle.headline3,
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
                       'Sign up or log in to your premium\naccount to get unlimited access.',
-                      style: TxtStyle.headline6MediumGrey,
+                      style: TxtStyle.headline6
+                          .copyWith(color: DarkTheme.greyScale500),
                     )
                   ],
                 ),
