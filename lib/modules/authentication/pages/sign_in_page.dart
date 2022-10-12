@@ -182,7 +182,7 @@ class _SignInPageState extends State<SignInPage> {
             children: [
               const Padding(
                 padding: EdgeInsets.only(top: 40.0),
-                child: Text('Ontari.', style: TxtStyle.titleSplash),
+                child: Text('Ontari.', style: TxtStyle.title),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
@@ -206,9 +206,11 @@ class _SignInPageState extends State<SignInPage> {
                   child: const Center(child: Text('Sign in')),
                 ),
               ),
-              const Text(
+              Text(
                 'Or continue with social account',
-                style: TxtStyle.headline5MediumWhite,
+                style: TxtStyle.headline5.copyWith(
+                  color: DarkTheme.greyScale500,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 24, bottom: 16),
@@ -284,7 +286,12 @@ class _SignInPageState extends State<SignInPage> {
       alignment: Alignment.centerRight,
       child: TextButton(
         onPressed: () {},
-        child: const Text('Forgot password?', style: TxtStyle.headline4blue),
+        child: Text(
+          'Forgot password?',
+          style: TxtStyle.headline4.copyWith(
+            color: DarkTheme.primaryBlue600,
+          ),
+        ),
       ),
     );
   }
@@ -295,7 +302,7 @@ class _SignInPageState extends State<SignInPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Don\'t have an account? ', style: TxtStyle.term),
+          const Text('Don\'t have an account? ', style: TxtStyle.headline5),
           TextButton(
             onPressed: () {
               Navigator.push(
@@ -305,7 +312,12 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               );
             },
-            child: const Text('Create Here', style: TxtStyle.create),
+            child: Text(
+              'Create Here',
+              style: TxtStyle.headline5.copyWith(
+                color: DarkTheme.primaryBlue600,
+              ),
+            ),
           ),
         ],
       ),

@@ -22,10 +22,19 @@ class SelectPlanPage extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 24),
-              const Text('Uses Individual Plan', style: TxtStyle.headline4blue),
+              Text(
+                'Uses Individual Plan',
+                style: TxtStyle.headline4.copyWith(
+                  color: DarkTheme.primaryBlue600,
+                ),
+              ),
               const SizedBox(height: 8),
-              const Text('Plan automatically renews monthly until cancelled.',
-                  style: TxtStyle.headline6MediumGrey),
+              Text(
+                'Plan automatically renews monthly until cancelled.',
+                style: TxtStyle.headline6.copyWith(
+                  color: DarkTheme.greyScale500,
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
                 child: ClassicButton(
@@ -34,7 +43,7 @@ class SelectPlanPage extends StatelessWidget {
                   radius: 12,
                   colorRadius: DarkTheme.primaryBlue600,
                   child: const Center(
-                    child: Text('Send Link', style: TxtStyle.currentPlan),
+                    child: Text('Send Link', style: TxtStyle.headline4),
                   ),
                   onTap: () {
                     //print('aaa');
@@ -66,12 +75,16 @@ class SelectPlanPage extends StatelessWidget {
           children: [
             const Padding(
               padding: EdgeInsets.fromLTRB(24, 140, 152, 8),
-              child: Text('Subscription', style: TxtStyle.headline2BoldWhite),
+              child: Text('Subscription', style: TxtStyle.title),
             ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(24, 0, 120, 44),
-              child: Text('Please Select your plan that\'s\nright for you',
-                  style: TxtStyle.bodySmallMediumGrey),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 0, 120, 44),
+              child: Text(
+                'Please Select your plan that\'s\nright for you',
+                style: TxtStyle.headline5.copyWith(
+                  color: DarkTheme.greyScale500,
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -112,22 +125,26 @@ class SelectPlanPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                       text:
                           'By continuing the purchase, you acknowledge that you\nhave read our ',
-                      style: TxtStyle.bodyTextSmall,
+                      style: TxtStyle.headline6,
                       children: <TextSpan>[
                         TextSpan(
                           text: 'Terms & Condition',
-                          style: TxtStyle.create
+                          style: TxtStyle.headline6.copyWith(
+                            color: DarkTheme.primaryBlue600,
+                          ),
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: 'and that you agree to our ',
-                          style: TxtStyle.bodyTextSmall,
+                          style: TxtStyle.headline6,
                         ),
                         TextSpan(
                           text: 'Privacy Policy.',
-                          style: TxtStyle.create
+                          style: TxtStyle.headline6.copyWith(
+                            color: DarkTheme.primaryBlue600,
+                          ),
                         ),
                       ],
                     ),
@@ -141,4 +158,3 @@ class SelectPlanPage extends StatelessWidget {
     );
   }
 }
-

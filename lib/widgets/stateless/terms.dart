@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../assets/assets_path.dart';
+import '../../themes/app_color.dart';
 import '../../themes/text_style.dart';
 
 class Terms extends StatefulWidget {
@@ -36,13 +37,15 @@ class _TermsState extends State<Terms> {
                 : Image.asset(AssetPath.iconUncheck),
             const Padding(padding: EdgeInsets.only(left: 12)),
             RichText(
-              text: const TextSpan(
+              text: TextSpan(
                 text: 'By Creating your account you have to agree with\nour',
-                style: TxtStyle.term,
-                children: <TextSpan>[
+                style: TxtStyle.buttonSmall.copyWith(
+                  color: DarkTheme.greyScale500,
+                ),
+                children: const <TextSpan>[
                   TextSpan(
                     text: ' Terms and Condition',
-                    style: TxtStyle.termBold,
+                    style: TxtStyle.headline6,
                   ),
                 ],
               ),

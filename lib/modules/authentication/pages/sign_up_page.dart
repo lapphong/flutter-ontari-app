@@ -86,7 +86,7 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               const Padding(
                 padding: EdgeInsets.only(top: 100.0),
-                child: Text('Sign Up', style: TxtStyle.titleSplash),
+                child: Text('Sign Up', style: TxtStyle.title),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
@@ -110,7 +110,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 24),
               const Text(
                 'Or continue with social account',
-                style: TxtStyle.headline5MediumWhite,
+                style: TxtStyle.headline5,
               ),
               const SizedBox(height: 24),
               Row(
@@ -164,10 +164,16 @@ class _SignUpPageState extends State<SignUpPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Already have an account? ', style: TxtStyle.term),
+                  const Text('Already have an account? ',
+                      style: TxtStyle.headline5),
                   TextButton(
                     onPressed: () => Navigator.pop(context),
-                    child: const Text('Sign in', style: TxtStyle.create),
+                    child:  Text(
+                      'Sign in',
+                      style: TxtStyle.headline5.copyWith(
+                        color: DarkTheme.primaryBlue600,
+                      ),
+                    ),
                   ),
                 ],
               )

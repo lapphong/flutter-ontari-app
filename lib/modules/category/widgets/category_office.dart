@@ -40,7 +40,9 @@ class CategoryOffice extends StatelessWidget {
                 ),
                 Text(
                   countMentor!,
-                  style: TxtStyle.headline6,
+                  style: TxtStyle.headline6.copyWith(
+                    color: DarkTheme.greyScale500,
+                  ),
                 ),
               ],
             ),

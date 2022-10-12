@@ -211,7 +211,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: TxtStyle.headline3),
+        Text(title, style: TxtStyle.headline4),
         const SizedBox(height: 10),
         TextFieldSearchBar(
           hintText: hintText,

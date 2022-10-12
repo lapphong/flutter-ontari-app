@@ -100,4 +100,9 @@ class TxtStyle {
     fontWeight: FontWeight.w500,
     fontSize: 10,
   );
+
+  static const titleBig = TextStyle(
+    fontWeight: FontWeight.w800,
+    fontSize: 40,
+  );
 }

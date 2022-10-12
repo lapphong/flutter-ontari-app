@@ -52,14 +52,13 @@ class _VerifyYourPageState extends State<VerifyYourPage> {
               children: [
                 const Padding(
                   padding: EdgeInsets.only(top: 140, bottom: 6),
-                  child: Text(
-                    'Phone Verification',
-                    style: TxtStyle.headline2BoldWhite,
-                  ),
+                  child: Text('Phone Verification', style: TxtStyle.headline2),
                 ),
-                const Text(
+                Text(
                   'We have sent code to your number\n(+62) 897 6464 0808',
-                  style: TxtStyle.bodySmallMediumGrey,
+                  style: TxtStyle.headline5.copyWith(
+                    color: DarkTheme.greyScale500,
+                  ),
                 ),
                 const SizedBox(height: 30),
                 Row(
@@ -79,7 +78,7 @@ class _VerifyYourPageState extends State<VerifyYourPage> {
                       child: Center(
                         child: Text(
                           'Send',
-                          style: TxtStyle.headline4White2,
+                          style: TxtStyle.headline4,
                         ),
                       ),
                     ),
@@ -96,7 +95,7 @@ class _VerifyYourPageState extends State<VerifyYourPage> {
                     backgroundColor: DarkTheme.greyScale800,
                     borderColor: DarkTheme.primaryBlue600,
                   ),
-                  style: TxtStyle.headline4White,
+                  style: TxtStyle.headline4,
                   fieldStyle: FieldStyle.box,
                   onChanged: (value) {},
                 ),
@@ -116,13 +115,13 @@ class _VerifyYourPageState extends State<VerifyYourPage> {
                         child: const Center(
                             child: Text(
                           '111111',
-                          style: TxtStyle.headline4White2,
+                          style: TxtStyle.headline4,
                         )),
                       ),
                     ),
                     const Text(
                       'Use code from your phone',
-                      style: TxtStyle.headline5MediumWhite,
+                      style: TxtStyle.headline5
                     ),
                   ],
                 ),

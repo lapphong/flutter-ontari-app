@@ -38,7 +38,12 @@ class ItemsDownloadVideo extends StatelessWidget {
                   ),
                 ),
                 Text(title!, style: TxtStyle.headline4),
-                Text(name!, style: TxtStyle.headline5),
+                Text(
+                  name!,
+                  style: TxtStyle.headline5.copyWith(
+                    color: DarkTheme.greyScale500,
+                  ),
+                ),
               ],
             ),
           ),

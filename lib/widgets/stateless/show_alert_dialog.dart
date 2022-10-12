@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ontari_app/themes/app_color.dart';
 import 'package:ontari_app/themes/text_style.dart';
 
 Future<bool?> showAlertDialog(
@@ -15,8 +16,18 @@ Future<bool?> showAlertDialog(
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(title, style: TxtStyle.headline3),
-        content: Text(content, style: TxtStyle.headline3),
+        title: Text(
+          title,
+          style: TxtStyle.headline3.copyWith(
+            color: DarkTheme.greyScale700,
+          ),
+        ),
+        content: Text(
+          content,
+          style: TxtStyle.headline3.copyWith(
+            color: DarkTheme.greyScale700,
+          ),
+        ),
         actions: <Widget>[
           if (cancelActionText != null)
             TextButton(

@@ -3,7 +3,6 @@ import 'package:ontari_app/themes/app_color.dart';
 import 'package:ontari_app/themes/text_style.dart';
 import 'package:ontari_app/modules/landing_page.dart';
 
-
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
@@ -12,7 +11,6 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  
   @override
   void initState() {
     super.initState();
@@ -34,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
         children: const [
           Expanded(
             flex: 8,
-            child: Center(child: Text('Ontari.', style: TxtStyle.titleSplash)),
+            child: Center(child: Text('Ontari.', style: TxtStyle.titleBig)),
           ),
           Expanded(
             flex: 1,
@@ -43,7 +41,7 @@ class _SplashPageState extends State<SplashPage> {
               child: Text(
                 textAlign: TextAlign.center,
                 'Lorem ipsum dolor sit amet, consectetur adipiscing\nelit. Tincidunt et, volutpat duis amet, risus.',
-                style: TxtStyle.bodyTextSmall,
+                style: TxtStyle.bodySmallMedium,
               ),
             ),
           ),
