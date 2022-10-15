@@ -5,13 +5,13 @@ class ThemeManager {
   factory ThemeManager() => _instance;
   ThemeManager._internal();
 
-  Future<void> saveTheme(bool themeName) async {
+  Future<void> saveTheme(int themeName) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('theme_mode', themeName);
+    await prefs.setInt('theme_mode', themeName);
   }
 
-  Future<bool> getTheme() async {
+  Future<int> getTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('theme_mode') ?? false;
+    return prefs.getInt('theme_mode') ?? 0;
   }
 }
