@@ -36,7 +36,7 @@ class _SettingPageState extends State<SettingPage> {
     appStateBloc!.logout();
   }
 
-  late bool _onValue = false;
+  late bool _onValue = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

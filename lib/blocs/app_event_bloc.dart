@@ -5,8 +5,6 @@ import '../providers/bloc_provider.dart';
 enum EventName {
   updateProfileUser,
   downloadVideo,
-  changeLanguage,
-  changeTheme,
 }
 
 class BlocEvent {

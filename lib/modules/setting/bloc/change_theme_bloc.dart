@@ -2,15 +2,15 @@ import 'package:ontari_app/providers/bloc_provider.dart';
 import 'package:ontari_app/resource/theme_manager.dart';
 import 'package:rxdart/rxdart.dart';
 
+import '../../../blocs/app_event_bloc.dart';
 import '../../../providers/log_provider.dart';
 
-enum ThemeMode { darkMode, lightMode }
-
 class ChangeThemeBloc implements BlocBase {
-  final _appMode = BehaviorSubject<ThemeMode>.seeded(ThemeMode.darkMode);
-  Stream<ThemeMode> get appMode => _appMode.stream;
-  ThemeMode get appModeValue => _appMode.stream.value;
-  ThemeMode get initMode => ThemeMode.darkMode;
+  // true: darkMode - false: lightMode
+  final _appMode = BehaviorSubject<bool>.seeded(true);
+  Stream<bool> get appMode => _appMode.stream;
+  bool get appModeValue => _appMode.stream.value;
+  bool get initState => true;
   LogProvider get logger => const LogProvider('⚡️ AppModeBloc');
   ThemeManager get themeManager => ThemeManager();
 
@@ -23,16 +23,16 @@ class ChangeThemeBloc implements BlocBase {
     logger.log('themeMode $themeMode');
 
     switch (themeMode) {
-      case 1:
-        await changeAppMode(ThemeMode.lightMode);
+      case false:
+        await changeAppMode(false);
         break;
       default:
-        await changeAppMode(ThemeMode.darkMode);
+        await changeAppMode(true);
     }
   }
 
-  Future<void> changeAppMode(ThemeMode mode) async {
-    await themeManager.saveTheme(mode.index);
+  Future<void> changeAppMode(bool mode) async {
+    await themeManager.saveTheme(mode);
     logger.log('changeAppMode $mode');
     _appMode.sink.add(mode);
   }

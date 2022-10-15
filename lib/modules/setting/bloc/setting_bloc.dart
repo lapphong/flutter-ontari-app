@@ -53,8 +53,6 @@ class SettingBloc extends UserDataBehaviorBloc<User> {
   final UserDetailRepo _repo;
 
   late final StreamSubscription<BlocEvent> _onUpdateProfileUserSub;
-  // late final StreamSubscription<BlocEvent> _onChangeLanguageSub;
-  // late final StreamSubscription<BlocEvent> _onChangeThemeSub;
 
   SettingBloc() : _repo = UserDetailRepo() {
     _onUpdateProfileUserSub = AppEventBloc().listenEvent(
