@@ -3,6 +3,7 @@ import 'package:ontari_app/themes/app_color.dart';
 import 'package:ontari_app/themes/text_style.dart';
 import 'package:ontari_app/modules/setting/widgets/title_option_setting.dart';
 import 'package:ontari_app/modules/setting/widgets/title_setting.dart';
+import 'package:ontari_app/utils/showSnackBar.dart';
 import 'package:ontari_app/widgets/stateless/common_avatar.dart';
 import 'package:ontari_app/widgets/stateless/common_bodyitem.dart';
 import 'package:ontari_app/widgets/stateless/common_button.dart';
@@ -28,7 +29,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   final TextEditingController _userController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   User get user => widget.user!;
-  SettingBloc? get _bloc => BlocProvider.of<SettingBloc>(context);
+  //SettingBloc? get _bloc => BlocProvider.of<SettingBloc>(context);
   final _updateProfileBloc = UpdateProfileBloc();
 
   buildTextFieldFirstName(String displayFirstName) {
@@ -95,7 +96,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
       if (res) {
         Navigator.pop(context);
-        _bloc!.refresh();
+        showSnackBar(
+          context,
+          "Update profile user success",
+          Image.asset(
+            AssetPath.iconChecked,
+            color: DarkTheme.green,
+          ),
+        );
         return;
       }
     } catch (e) {}

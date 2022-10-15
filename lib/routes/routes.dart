@@ -55,7 +55,7 @@ class Routes {
       case RouteName.downloadVideoPage:
         return _buildRoute(settings, DownloadVideoPage());
       case RouteName.editProfilePage:
-        return _buildRoute(settings, EditProfilePage());
+        return _buildRoute(settings, const EditProfilePage());
       case RouteName.detailMentorPage:
         return _buildRoute(settings, const DetailMentorPage());
       case RouteName.playingCoursePage:
