@@ -86,7 +86,7 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               const Padding(
                 padding: EdgeInsets.only(top: 100.0),
-                child: Text('Sign Up', style: TxtStyle.title),
+                child: Text('Sign Up', style: TxtStyle.titleBig),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),

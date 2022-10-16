@@ -27,8 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: DarkTheme.greyScale50,
-        scaffoldBackgroundColor: DarkTheme.greyScale50,
+        scaffoldBackgroundColor: DarkTheme.white,
         fontFamily: 'manrope',
         textTheme: Theme.of(context)
             .textTheme

@@ -45,7 +45,7 @@ class ListPage extends StatelessWidget {
                               width: size.width,
                               widthRadius: 0,
                               colorRadius: DarkTheme.white,
-                              color: DarkTheme.greyScale800,
+                              color: DarkTheme.primaryBlue600,
                               radius: 20,
                               onTap: () {
                                 Navigator.pushNamed(context, e);

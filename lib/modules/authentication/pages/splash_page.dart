@@ -1,27 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ontari_app/themes/app_color.dart';
 import 'package:ontari_app/themes/text_style.dart';
-import 'package:ontari_app/modules/landing_page.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
-
-  @override
-  State<SplashPage> createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(
-      const Duration(seconds: 2),
-      () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const LandingPage()),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {

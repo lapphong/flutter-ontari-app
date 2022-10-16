@@ -182,7 +182,7 @@ class _SignInPageState extends State<SignInPage> {
             children: [
               const Padding(
                 padding: EdgeInsets.only(top: 40.0),
-                child: Text('Ontari.', style: TxtStyle.title),
+                child: Text('Ontari.', style: TxtStyle.titleBig),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),

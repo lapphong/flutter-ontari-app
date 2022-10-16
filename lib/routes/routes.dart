@@ -4,6 +4,7 @@ import 'package:ontari_app/modules/authentication/pages/splash_page.dart';
 import 'package:ontari_app/modules/common/common_widget_page.dart';
 import 'package:ontari_app/modules/details/pages/detail_mentor_page.dart';
 import 'package:ontari_app/modules/details/pages/detail_playing_course.dart';
+import 'package:ontari_app/modules/landing_page.dart';
 import 'package:ontari_app/modules/root/widgets/tab_item.dart';
 import 'package:ontari_app/modules/setting/pages/change_language_page.dart';
 import 'package:ontari_app/modules/setting/pages/download_video_page.dart';
@@ -61,7 +62,7 @@ class Routes {
       case RouteName.playingCoursePage:
         return _buildRoute(settings, const PlayingCoursePage());
       case RouteName.fullScreenPage:
-        return _buildRoute(settings, const SplashPage());
+        return _buildRoute(settings, const LandingPage());
       default:
         return _errorRoute(settings);
     }

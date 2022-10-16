@@ -2,7 +2,6 @@ import 'package:ontari_app/providers/bloc_provider.dart';
 import 'package:ontari_app/resource/theme_manager.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../../../blocs/app_event_bloc.dart';
 import '../../../providers/log_provider.dart';
 
 class ChangeThemeBloc implements BlocBase {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ontari_app/modules/authentication/pages/splash_page.dart';
 import 'package:ontari_app/providers/bloc_provider.dart';
 import 'package:ontari_app/routes/routes.dart';
 import 'package:ontari_app/themes/app_color.dart';
@@ -35,18 +36,15 @@ class _LandingPageState extends State<LandingPage> {
         initialData: appStateBloc.initState,
         builder: (context, snapshot) {
           if (snapshot.data == AppState.loading) {
-            return const MaterialApp(
-              debugShowCheckedModeBanner: false,
-              home: Scaffold(
-                backgroundColor: DarkTheme.greyScale900,
-                body: Center(child: CircularProgressIndicator()),
-              ),
-            );
+            return const SplashPage();
           }
           if (snapshot.data == AppState.unAuthorized) {
             return BlocProvider(
               bloc: _authenticationBloc,
               child: MaterialApp(
+                debugShowCheckedModeBanner: false,
+                onGenerateRoute: Routes.unAuthorizedRoute,
+                initialRoute: '/',
                 theme: ThemeData(
                   scaffoldBackgroundColor: DarkTheme.greyScale900,
                   fontFamily: 'manrope',
@@ -56,21 +54,18 @@ class _LandingPageState extends State<LandingPage> {
                 ),
                 key: const ValueKey('UnAuthorized'),
                 builder: _builder,
-                onGenerateRoute: Routes.unAuthorizedRoute,
-                debugShowCheckedModeBanner: false,
               ),
             );
           }
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            initialRoute: '/',
             onGenerateRoute: Routes.authorizedRoute,
+            initialRoute: '/',
             theme: ThemeData(
               scaffoldBackgroundColor: DarkTheme.greyScale900,
               fontFamily: 'manrope',
               textTheme: Theme.of(context).textTheme.apply(
-                  bodyColor: DarkTheme.white,
-                  displayColor: DarkTheme.white),
+                  bodyColor: DarkTheme.white, displayColor: DarkTheme.white),
             ),
             key: key,
             builder: _builder,
