@@ -29,7 +29,6 @@ class SettingPage extends StatefulWidget {
 
 class _SettingPageState extends State<SettingPage> {
   SettingBloc? get _bloc => BlocProvider.of<SettingBloc>(context);
-  final navigatorKey = GlobalKey<NavigatorState>;
 
   void _logOut(BuildContext context) {
     final appStateBloc = BlocProvider.of<AppStateBloc>(context);

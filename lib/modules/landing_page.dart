@@ -11,6 +11,7 @@ import 'authentication/wrapper/service/app_auth_service.dart';
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
   static final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  static final scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   State<LandingPage> createState() => _LandingPageState();
@@ -54,6 +55,7 @@ class _LandingPageState extends State<LandingPage> {
                 ),
                 key: const ValueKey('UnAuthorized'),
                 builder: _builder,
+                scaffoldMessengerKey: LandingPage.scaffoldKey,
               ),
             );
           }
@@ -70,6 +72,7 @@ class _LandingPageState extends State<LandingPage> {
             key: key,
             builder: _builder,
             navigatorKey: LandingPage.navigatorKey,
+            scaffoldMessengerKey: LandingPage.scaffoldKey,
           );
         },
       ),

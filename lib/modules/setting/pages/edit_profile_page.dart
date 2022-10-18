@@ -11,8 +11,6 @@ import 'package:ontari_app/widgets/stateful/common_textfield.dart';
 
 import '../../../assets/assets_path.dart';
 import '../../../models/user.dart';
-import '../../../providers/bloc_provider.dart';
-import '../bloc/setting_bloc.dart';
 import '../bloc/update_profile_bloc.dart';
 
 class EditProfilePage extends StatefulWidget {

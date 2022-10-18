@@ -45,14 +45,9 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async {
-        final isFirstRouteInCurrentTab =
-            !await navigatorKeys[_currentTab]!.currentState!.maybePop();
-        print('isFirstRouteInCurrentTab: $isFirstRouteInCurrentTab');
-        print(_currentTab);
-
-        return isFirstRouteInCurrentTab;
-      },
+      onWillPop: () async =>
+          !(await navigatorKeys[_currentTab]!.currentState?.maybePop() ??
+              false),
       child: CupertinoHomeScaffold(
         currentTab: _currentTab,
         onSelectTab: _select,
