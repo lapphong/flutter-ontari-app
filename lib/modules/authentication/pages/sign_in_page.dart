@@ -11,7 +11,6 @@ import '../../../../utils/showSnackBar.dart';
 import '../../../assets/assets_path.dart';
 import '../../../blocs/app_state_bloc.dart';
 import '../../../providers/bloc_provider.dart';
-import '../../landing_page.dart';
 import '../bloc/authentication_bloc.dart';
 import '../enum/login_state.dart';
 

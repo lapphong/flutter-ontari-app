@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ontari_app/themes/app_color.dart';
 import 'package:ontari_app/models/model_local.dart';
 import 'package:ontari_app/modules/setting/widgets/items_language.dart';
 import 'package:ontari_app/modules/setting/widgets/title_setting.dart';

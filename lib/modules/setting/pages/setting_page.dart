@@ -5,7 +5,6 @@ import 'package:ontari_app/themes/text_style.dart';
 import 'package:ontari_app/models/model_local.dart';
 import 'package:ontari_app/modules/setting/pages/change_language_page.dart';
 import 'package:ontari_app/modules/setting/pages/download_video_page.dart';
-import 'package:ontari_app/modules/setting/pages/edit_profile_page.dart';
 import 'package:ontari_app/modules/setting/pages/my_favorite_page.dart';
 import 'package:ontari_app/modules/setting/widgets/item_account.dart';
 import 'package:ontari_app/modules/setting/widgets/items_arrow_setting.dart';
@@ -15,6 +14,7 @@ import 'package:ontari_app/modules/setting/widgets/title_option_setting.dart';
 import '../../../assets/assets_path.dart';
 import '../../../blocs/app_state_bloc.dart';
 import '../../../providers/bloc_provider.dart';
+import '../../../routes/route_name.dart';
 import '../../../widgets/stateful/toggle_switch_button.dart';
 import '../../../widgets/stateless/common_button.dart';
 import '../../../widgets/stateless/show_alert_dialog.dart';
@@ -89,16 +89,9 @@ class _SettingPageState extends State<SettingPage> {
                           ),
                           SettingAccount(
                             onTap: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => EditProfilePage(
-                                    user: detail,
-                                  ),
-                                ),
-                              );
-                              // Navigator.pushNamed(context,
-                              //     RouteName.editProfilePage,
-                              //     arguments: detail);
+                              Navigator.of(context).pushNamed(
+                                  RouteName.editProfilePage,
+                                  arguments: detail);
                             },
                             fullName:
                                 '${detail.displayFirstName} ${detail.displayLastName}',

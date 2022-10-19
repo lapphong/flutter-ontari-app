@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:ontari_app/modules/root/widgets/tab_item.dart';
 
+import '../../../routes/routes.dart';
 import '../../../themes/app_color.dart';
 
 class CupertinoHomeScaffold extends StatelessWidget {
@@ -36,6 +37,7 @@ class CupertinoHomeScaffold extends StatelessWidget {
       tabBuilder: (context, index) {
         final item = TabItem.values[index];
         return CupertinoTabView(
+          onGenerateRoute: Routes.authorizedRoute,
           navigatorKey: navigatorKeys[item],
           builder: (context) => widgetBuilders[item]!(context),
         );
