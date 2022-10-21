@@ -1,7 +1,6 @@
 class RouteName {
   static const String rootPage = 'RootPage';
   static const String fullScreenPage = 'FullScreenPage';
-  static const String fullPageBloc = 'FullPageBloc';
 
   static const String commonWidgetPage = 'CommonWidgetPage';
   static const String listPage = 'ListPage';

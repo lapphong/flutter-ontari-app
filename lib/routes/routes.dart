@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ontari_app/modules/authentication/pages/select_plan_page.dart';
 import 'package:ontari_app/modules/authentication/pages/splash_page.dart';
@@ -123,8 +124,8 @@ class Routes {
     }
   }
 
-  static MaterialPageRoute _buildRoute(RouteSettings settings, Widget builder) {
-    return MaterialPageRoute(
+  static CupertinoPageRoute _buildRoute(RouteSettings settings, Widget builder) {
+    return CupertinoPageRoute(
       settings: settings,
       builder: (BuildContext context) => builder,
     );

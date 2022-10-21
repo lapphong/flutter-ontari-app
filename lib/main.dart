@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ontari_app/modules/landing_page.dart';
 import 'package:ontari_app/themes/app_color.dart';
 
 import 'routes/route_name.dart';
@@ -12,7 +13,8 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(const LandingPage());
+  //runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
             .textTheme
             .apply(bodyColor: DarkTheme.white, displayColor: DarkTheme.white),
       ),
+      //home: const LandingPage(),
       initialRoute: RouteName.listPage,
       onGenerateRoute: router.Routes.generateRoute,
     );

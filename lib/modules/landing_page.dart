@@ -37,7 +37,16 @@ class _LandingPageState extends State<LandingPage> {
         initialData: appStateBloc.initState,
         builder: (context, snapshot) {
           if (snapshot.data == AppState.loading) {
-            return const SplashPage();
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                scaffoldBackgroundColor: DarkTheme.greyScale900,
+                fontFamily: 'manrope',
+                textTheme: Theme.of(context).textTheme.apply(
+                    bodyColor: DarkTheme.white, displayColor: DarkTheme.white),
+              ),
+              home: const SplashPage(),
+            );
           }
           if (snapshot.data == AppState.unAuthorized) {
             return BlocProvider(

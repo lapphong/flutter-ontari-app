@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ontari_app/modules/root/widgets/tab_item.dart';
 import 'package:ontari_app/modules/root/widgets/cupertino_home_scaffold.dart';
@@ -45,9 +46,7 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async =>
-          !(await navigatorKeys[_currentTab]!.currentState?.maybePop() ??
-              false),
+      onWillPop: _onWillPop,
       child: CupertinoHomeScaffold(
         currentTab: _currentTab,
         onSelectTab: _select,
@@ -55,5 +54,10 @@ class _RootPageState extends State<RootPage> {
         navigatorKeys: navigatorKeys,
       ),
     );
+  }
+
+  Future<bool> _onWillPop() async {
+    return !(await navigatorKeys[_currentTab]!.currentState?.maybePop() ??
+        false);
   }
 }
