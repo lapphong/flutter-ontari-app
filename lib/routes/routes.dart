@@ -124,6 +124,18 @@ class Routes {
     }
   }
 
+  static Route loadingRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case '/':
+        return _buildRoute(
+          settings,
+          const SplashPage(),
+        );
+      default:
+        return _errorRoute(settings);
+    }
+  }
+
   static CupertinoPageRoute _buildRoute(RouteSettings settings, Widget builder) {
     return CupertinoPageRoute(
       settings: settings,

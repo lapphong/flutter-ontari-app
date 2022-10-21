@@ -38,6 +38,7 @@ class _SettingPageState extends State<SettingPage> {
   late bool _onValue = true;
   @override
   Widget build(BuildContext context) {
+    print('vao lai');
     return Scaffold(
       body: StreamBuilder<User?>(
         stream: _bloc!.userStream,

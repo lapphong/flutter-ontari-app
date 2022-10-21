@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ontari_app/modules/authentication/pages/splash_page.dart';
 import 'package:ontari_app/providers/bloc_provider.dart';
 import 'package:ontari_app/routes/routes.dart';
 import 'package:ontari_app/themes/app_color.dart';
@@ -20,7 +19,7 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   final appStateBloc = AppStateBloc();
   late AuthenticationBloc _authenticationBloc;
-  static final GlobalKey<State> key = GlobalKey();
+  static final GlobalKey<State> _key = GlobalKey();
 
   @override
   void initState() {
@@ -37,51 +36,23 @@ class _LandingPageState extends State<LandingPage> {
         initialData: appStateBloc.initState,
         builder: (context, snapshot) {
           if (snapshot.data == AppState.loading) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                scaffoldBackgroundColor: DarkTheme.greyScale900,
-                fontFamily: 'manrope',
-                textTheme: Theme.of(context).textTheme.apply(
-                    bodyColor: DarkTheme.white, displayColor: DarkTheme.white),
-              ),
-              home: const SplashPage(),
-            );
+            return const MaterialAppData(routes: Routes.loadingRoute);
           }
           if (snapshot.data == AppState.unAuthorized) {
             return BlocProvider(
               bloc: _authenticationBloc,
-              child: MaterialApp(
-                debugShowCheckedModeBanner: false,
-                onGenerateRoute: Routes.unAuthorizedRoute,
-                initialRoute: '/',
-                theme: ThemeData(
-                  scaffoldBackgroundColor: DarkTheme.greyScale900,
-                  fontFamily: 'manrope',
-                  textTheme: Theme.of(context).textTheme.apply(
-                      bodyColor: DarkTheme.white,
-                      displayColor: DarkTheme.white),
-                ),
-                key: const ValueKey('UnAuthorized'),
+              child: MaterialAppData(
+                routes: Routes.unAuthorizedRoute,
+                keyState: const ValueKey('UnAuthorized'),
                 builder: _builder,
-                scaffoldMessengerKey: LandingPage.scaffoldKey,
               ),
             );
           }
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            onGenerateRoute: Routes.authorizedRoute,
-            initialRoute: '/',
-            theme: ThemeData(
-              scaffoldBackgroundColor: DarkTheme.greyScale900,
-              fontFamily: 'manrope',
-              textTheme: Theme.of(context).textTheme.apply(
-                  bodyColor: DarkTheme.white, displayColor: DarkTheme.white),
-            ),
-            key: key,
+          return MaterialAppData(
+            routes: Routes.authorizedRoute,
+            keyState: _key,
             builder: _builder,
             navigatorKey: LandingPage.navigatorKey,
-            scaffoldMessengerKey: LandingPage.scaffoldKey,
           );
         },
       ),
@@ -93,6 +64,41 @@ class _LandingPageState extends State<LandingPage> {
     return MediaQuery(
       data: data.copyWith(textScaleFactor: 1),
       child: child!,
+    );
+  }
+}
+
+class MaterialAppData extends StatelessWidget {
+  const MaterialAppData({
+    Key? key,
+    required this.routes,
+    this.keyState,
+    this.builder,
+    this.navigatorKey,
+  }) : super(key: key);
+
+  final Route<dynamic>? Function(RouteSettings) routes;
+  final Key? keyState;
+  final GlobalKey<NavigatorState>? navigatorKey;
+  final Widget Function(BuildContext, Widget?)? builder;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: routes,
+      initialRoute: '/',
+      theme: ThemeData(
+        scaffoldBackgroundColor: DarkTheme.greyScale900,
+        fontFamily: 'manrope',
+        textTheme: Theme.of(context)
+            .textTheme
+            .apply(bodyColor: DarkTheme.white, displayColor: DarkTheme.white),
+      ),
+      key: keyState,
+      builder: builder,
+      navigatorKey: navigatorKey,
+      scaffoldMessengerKey: LandingPage.scaffoldKey,
     );
   }
 }
