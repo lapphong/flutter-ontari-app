@@ -49,6 +49,7 @@ class _SettingPageState extends State<SettingPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 24.0),
                     child: Row(
@@ -59,7 +60,6 @@ class _SettingPageState extends State<SettingPage> {
                         Row(
                           children: [
                             const Image(
-                              //color: DarkTheme.white,
                               image: AssetImage(AssetPath.iconDarkMode),
                             ),
                             StreamBuilder<bool>(
@@ -177,6 +177,7 @@ class _SettingPageState extends State<SettingPage> {
   // check == 0 : item child ListView is arrow right
   ListView buildListView(List<ModelSetting> list, int check) {
     return ListView.builder(
+      padding: EdgeInsets.zero,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: list.length,

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ontari_app/modules/setting/bloc/change_theme_bloc.dart';
 import 'package:ontari_app/providers/bloc_provider.dart';
 import 'package:ontari_app/routes/routes.dart';
 
 import '../blocs/app_state_bloc.dart';
+import '../themes/app_color.dart';
 import '../themes/theme_data.dart';
 import 'authentication/bloc/authentication_bloc.dart';
 import 'authentication/wrapper/service/app_auth_service.dart';
@@ -87,6 +89,10 @@ class MaterialAppData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: DarkTheme.greyScale900,
+      statusBarBrightness: Brightness.light,
+    ));
     return BlocProvider(
       bloc: _appThemeBloc,
       child: StreamBuilder<bool>(
