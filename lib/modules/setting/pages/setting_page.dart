@@ -18,6 +18,7 @@ import '../../../routes/route_name.dart';
 import '../../../widgets/stateful/toggle_switch_button.dart';
 import '../../../widgets/stateless/common_button.dart';
 import '../../../widgets/stateless/show_alert_dialog.dart';
+import '../bloc/change_theme_bloc.dart';
 import '../bloc/setting_bloc.dart';
 
 class SettingPage extends StatefulWidget {
@@ -29,16 +30,15 @@ class SettingPage extends StatefulWidget {
 
 class _SettingPageState extends State<SettingPage> {
   SettingBloc? get _bloc => BlocProvider.of<SettingBloc>(context);
+  ChangeThemeBloc? get _blocTheme => BlocProvider.of<ChangeThemeBloc>(context);
 
   void _logOut(BuildContext context) {
     final appStateBloc = BlocProvider.of<AppStateBloc>(context);
     appStateBloc!.logout();
   }
 
-  late bool _onValue = true;
   @override
   Widget build(BuildContext context) {
-    print('vao lai');
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -59,13 +59,19 @@ class _SettingPageState extends State<SettingPage> {
                         Row(
                           children: [
                             const Image(
-                              color: DarkTheme.white,
+                              //color: DarkTheme.white,
                               image: AssetImage(AssetPath.iconDarkMode),
                             ),
-                            ToggleSwitchButton(
-                              value: _onValue,
-                              onChanged: (value) =>
-                                  setState(() => _onValue = value),
+                            StreamBuilder<bool>(
+                              stream: _blocTheme!.appMode,
+                              builder: (context, snapshot) {
+                                final valueMode = snapshot.data ?? true;
+                                return ToggleSwitchButton(
+                                  value: valueMode,
+                                  onChanged: (value) =>
+                                      _blocTheme!.changeAppMode(value),
+                                );
+                              },
                             ),
                           ],
                         ),

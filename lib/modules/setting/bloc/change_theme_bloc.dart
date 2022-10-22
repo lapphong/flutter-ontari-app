@@ -5,11 +5,9 @@ import 'package:rxdart/rxdart.dart';
 import '../../../providers/log_provider.dart';
 
 class ChangeThemeBloc implements BlocBase {
-  // true: darkMode - false: lightMode
-  final _appMode = BehaviorSubject<bool>.seeded(true);
+  final _appMode = BehaviorSubject<bool>();
   Stream<bool> get appMode => _appMode.stream;
   bool get appModeValue => _appMode.stream.value;
-  bool get initState => true;
   LogProvider get logger => const LogProvider('⚡️ AppModeBloc');
   ThemeManager get themeManager => ThemeManager();
 
@@ -19,15 +17,7 @@ class ChangeThemeBloc implements BlocBase {
 
   Future<void> launchApp() async {
     final themeMode = await themeManager.getTheme();
-    logger.log('themeMode $themeMode');
-
-    switch (themeMode) {
-      case false:
-        await changeAppMode(false);
-        break;
-      default:
-        await changeAppMode(true);
-    }
+    _appMode.sink.add(themeMode);
   }
 
   Future<void> changeAppMode(bool mode) async {

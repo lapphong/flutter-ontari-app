@@ -1,3 +1,4 @@
+import 'package:ontari_app/utils/prefs_key.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeManager {
@@ -7,11 +8,12 @@ class ThemeManager {
 
   Future<void> saveTheme(bool themeName) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('theme_mode', themeName);
+    await prefs.setBool(PrefsKey.modeLevel, themeName);
   }
 
   Future<bool> getTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('theme_mode') ?? true;
+    final result = prefs.getBool(PrefsKey.modeLevel);
+    return result ?? true;
   }
 }

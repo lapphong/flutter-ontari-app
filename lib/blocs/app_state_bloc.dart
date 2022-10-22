@@ -51,7 +51,8 @@ class AppStateBloc implements BlocBase {
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     // delete value in SharedPreferences
-    await prefs.clear();
+    //await prefs.clear();
+    await prefs.remove(PrefsKey.authorLevel);
     // set app state UnAuthorized
     await changeAppState(AppState.unAuthorized);
   }
