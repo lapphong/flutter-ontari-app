@@ -40,96 +40,95 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     print('vao lai');
     return Scaffold(
-      body: StreamBuilder<User?>(
-        stream: _bloc!.userStream,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            final detail = snapshot.data!;
-            return SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 24.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text('Setting', style: TxtStyle.title),
-                                const SizedBox(width: 100),
-                                Row(
-                                  children: [
-                                    const Image(
-                                      color: DarkTheme.white,
-                                      image: AssetImage(AssetPath.iconDarkMode),
-                                    ),
-                                    ToggleSwitchButton(
-                                      value: _onValue,
-                                      onChanged: (value) =>
-                                          setState(() => _onValue = value),
-                                    ),
-                                  ],
-                                ),
-                                const SquareButton(
-                                  bgColor: DarkTheme.greyScale800,
-                                  edge: 40,
-                                  radius: 10,
-                                  child: ImageIcon(
-                                    size: 13,
-                                    color: DarkTheme.white,
-                                    AssetImage(AssetPath.iconBell),
-                                  ),
-                                ),
-                              ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 24.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('Setting', style: TxtStyle.title),
+                        const SizedBox(width: 100),
+                        Row(
+                          children: [
+                            const Image(
+                              color: DarkTheme.white,
+                              image: AssetImage(AssetPath.iconDarkMode),
                             ),
+                            ToggleSwitchButton(
+                              value: _onValue,
+                              onChanged: (value) =>
+                                  setState(() => _onValue = value),
+                            ),
+                          ],
+                        ),
+                        const SquareButton(
+                          bgColor: DarkTheme.greyScale800,
+                          edge: 40,
+                          radius: 10,
+                          child: ImageIcon(
+                            size: 13,
+                            color: DarkTheme.white,
+                            AssetImage(AssetPath.iconBell),
                           ),
-                          SettingAccount(
-                            onTap: () {
-                              Navigator.of(context).pushNamed(
-                                  RouteName.editProfilePage,
-                                  arguments: detail);
-                            },
-                            fullName:
-                                '${detail.displayFirstName} ${detail.displayLastName}',
-                            userName: '${detail.displayUserName} ',
-                            assetName: '${detail.imgUrl}',
+                        ),
+                      ],
+                    ),
+                  ),
+                  StreamBuilder<User?>(
+                    stream: _bloc!.userStream,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final detail = snapshot.data!;
+                        return SettingAccount(
+                          onTap: () {
+                            Navigator.of(context).pushNamed(
+                              RouteName.editProfilePage,
+                              arguments: detail,
+                            );
+                          },
+                          fullName:
+                              '${detail.displayFirstName} ${detail.displayLastName}',
+                          userName: '${detail.displayUserName} ',
+                          assetName: '${detail.imgUrl}',
+                        );
+                      }
+                      if (snapshot.hasError) {
+                        return const SliverFillRemaining(
+                          child: Center(
+                            child: Text('Something went wrong'),
                           ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      child: buildTitleOptionSettings('ACCOUNT SETTING'),
-                    ),
-                    buildListView(accountSetting, 0),
-                    buildTitleOptionSettings('APPLICATION'),
-                    const SizedBox(height: 16),
-                    buildListView(application, 0),
-                    //buildListView(applicationToggle, 1),
-                    const TitleOptionSettings(
-                      height: 16,
-                      color: DarkTheme.greyScale800,
-                    ),
-                    buildLogoutButton(context),
-                  ],
-                ),
+                        );
+                      }
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                  ),
+                ],
               ),
-            );
-          }
-          if (snapshot.hasError) {
-            return const SliverFillRemaining(
-              child: Center(
-                child: Text('Something went wrong'),
-              ),
-            );
-          }
-          return const Center(child: CircularProgressIndicator());
-        },
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: buildTitleOptionSettings('ACCOUNT SETTING'),
+            ),
+            buildListView(accountSetting, 0),
+            buildTitleOptionSettings('APPLICATION'),
+            const SizedBox(height: 16),
+            buildListView(application, 0),
+            //buildListView(applicationToggle, 1),
+            const TitleOptionSettings(
+              height: 16,
+              color: DarkTheme.greyScale800,
+            ),
+            buildLogoutButton(context),
+          ],
+        ),
       ),
     );
   }
