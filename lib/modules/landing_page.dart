@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:ontari_app/modules/setting/bloc/change_theme_bloc.dart';
 import 'package:ontari_app/providers/bloc_provider.dart';
 import 'package:ontari_app/routes/routes.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 import '../blocs/app_state_bloc.dart';
 import '../themes/app_color.dart';
@@ -51,11 +52,13 @@ class _LandingPageState extends State<LandingPage> {
               ),
             );
           }
-          return MaterialAppData(
-            routes: Routes.authorizedRoute,
-            keyState: _key,
-            builder: _builder,
-            navigatorKey: LandingPage.navigatorKey,
+          return OverlaySupport.global(
+            child: MaterialAppData(
+              routes: Routes.authorizedRoute,
+              keyState: _key,
+              builder: _builder,
+              navigatorKey: LandingPage.navigatorKey,
+            ),
           );
         },
       ),

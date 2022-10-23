@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ontari_app/modules/root/widgets/tab_item.dart';
 import 'package:ontari_app/modules/root/widgets/cupertino_home_scaffold.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 import '../../activity/pages/activity_page.dart';
 import '../../category/pages/category_page.dart';
@@ -56,8 +57,31 @@ class _RootPageState extends State<RootPage> {
     );
   }
 
+  DateTime press = DateTime.now();
   Future<bool> _onWillPop() async {
-    return !(await navigatorKeys[_currentTab]!.currentState?.maybePop() ??
-        false);
+    String? currentRoute;
+
+    navigatorKeys[_currentTab]?.currentState!.popUntil((route) {
+      currentRoute = route.settings.name;
+      return true;
+    });
+
+    if (currentRoute == '/') {
+      final time = DateTime.now().difference(press);
+      final cantExit = time >= const Duration(seconds: 2);
+      press = DateTime.now();
+      if (cantExit) {
+        toast(
+          'Click again Press Back button to Exit',
+          context: context,
+          duration: Toast.LENGTH_SHORT,
+        );
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return !await navigatorKeys[_currentTab]!.currentState!.maybePop();
+    }
   }
 }

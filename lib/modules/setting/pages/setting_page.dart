@@ -108,9 +108,7 @@ class _SettingPageState extends State<SettingPage> {
                       }
                       if (snapshot.hasError) {
                         return const SliverFillRemaining(
-                          child: Center(
-                            child: Text('Something went wrong'),
-                          ),
+                          child: Center(child: Text('Something went wrong')),
                         );
                       }
                       return const Center(child: CircularProgressIndicator());
@@ -168,10 +166,7 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   TitleOptionSettings buildTitleOptionSettings(String title) {
-    return TitleOptionSettings(
-      title: title,
-      color: DarkTheme.greyScale800,
-    );
+    return TitleOptionSettings(title: title, color: DarkTheme.greyScale800);
   }
 
   // check == 0 : item child ListView is arrow right
