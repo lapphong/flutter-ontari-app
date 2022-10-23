@@ -17,7 +17,10 @@ class ChangeThemeBloc implements BlocBase {
 
   Future<void> launchApp() async {
     final themeMode = await themeManager.getTheme();
-    _appMode.sink.add(themeMode);
+    if (themeMode != true) {
+      _appMode.sink.add(themeMode);
+      logger.log('themeMode $themeMode');
+    }
   }
 
   Future<void> changeAppMode(bool mode) async {

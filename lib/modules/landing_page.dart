@@ -84,7 +84,6 @@ class MaterialAppData extends StatelessWidget {
   final Key? keyState;
   final GlobalKey<NavigatorState>? navigatorKey;
   final Widget Function(BuildContext, Widget?)? builder;
-
   final ChangeThemeBloc _appThemeBloc = ChangeThemeBloc();
 
   @override
