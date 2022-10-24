@@ -219,16 +219,13 @@ class _SettingPageState extends State<SettingPage> {
     if (list == application) {
       switch (index) {
         case 0:
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => DownloadVideoPage()));
+          Navigator.pushNamed(context, RouteName.downloadVideoPage);
           break;
         case 1:
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => const MyFavoritePage()));
+          Navigator.pushNamed(context, RouteName.favoritePage);
           break;
         case 2:
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => const LanguagePage()));
+          Navigator.pushNamed(context, RouteName.languagePage);
           break;
       }
     } else {

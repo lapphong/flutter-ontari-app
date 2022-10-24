@@ -79,6 +79,12 @@ class Routes {
             child: const RootPage(),
           ),
         );
+      case RouteName.languagePage:
+        return _buildRoute(settings, const LanguagePage());
+      case RouteName.downloadVideoPage:
+        return _buildRoute(settings, DownloadVideoPage());
+      case RouteName.favoritePage:
+        return _buildRoute(settings, const MyFavoritePage());
       case RouteName.editProfilePage:
         final user = settings.arguments;
         if (user is User) {
@@ -136,7 +142,8 @@ class Routes {
     }
   }
 
-  static CupertinoPageRoute _buildRoute(RouteSettings settings, Widget builder) {
+  static CupertinoPageRoute _buildRoute(
+      RouteSettings settings, Widget builder) {
     return CupertinoPageRoute(
       settings: settings,
       builder: (BuildContext context) => builder,

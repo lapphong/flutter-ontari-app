@@ -198,6 +198,10 @@ final List<ModelSetting> menuItemDownload = [itemPlayVideo, itemRemove];
 //----------------------------------Language----------------------------------//
 final List<ModelSetting> language = [
   const ModelSetting(
+    iconUrl: AssetPath.iconUS,
+    title: 'United States',
+  ),
+  const ModelSetting(
     iconUrl: AssetPath.iconFrance,
     title: 'France',
   ),
@@ -224,10 +228,6 @@ final List<ModelSetting> language = [
   const ModelSetting(
     iconUrl: AssetPath.iconSweden,
     title: 'Sweden',
-  ),
-  const ModelSetting(
-    iconUrl: AssetPath.iconUS,
-    title: 'United States',
   ),
 ];
 //------------------------------Account Setting-------------------------------//
